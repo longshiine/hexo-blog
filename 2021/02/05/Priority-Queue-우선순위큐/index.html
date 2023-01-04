@@ -1,104 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="kor">
 <head>
-  <meta charset="utf-8">
-  
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  
-  <title>Priority Queue(우선순위큐) | Jaylog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="프로그래머스: 이중우선순위 큐 풀이코테 대비 후루룩 훑기(2)https:&#x2F;&#x2F;programmers.co.kr&#x2F;learn&#x2F;courses&#x2F;30&#x2F;lessons&#x2F;42628                                    힙, 우선순위큐 필기                                                 이중우선순위큐">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Priority Queue(우선순위큐)">
-<meta property="og:url" content="http://yoursite.com/2021/02/05/Priority-Queue-%E1%84%8B%E1%85%AE%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%B1%E1%84%8F%E1%85%B2/index.html">
-<meta property="og:site_name" content="Jaylog">
-<meta property="og:description" content="프로그래머스: 이중우선순위 큐 풀이코테 대비 후루룩 훑기(2)https:&#x2F;&#x2F;programmers.co.kr&#x2F;learn&#x2F;courses&#x2F;30&#x2F;lessons&#x2F;42628                                    힙, 우선순위큐 필기                                                 이중우선순위큐">
-<meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/image/post_image/20210205/write2.jpeg">
-<meta property="og:image" content="http://yoursite.com/image/post_image/20210205/dual.png">
-<meta property="article:published_time" content="2021-02-05T12:46:32.000Z">
-<meta property="article:modified_time" content="2023-01-04T12:24:44.234Z">
-<meta property="article:author" content="Jay_Kim">
-<meta property="article:tag" content="Algorithm">
-<meta property="article:tag" content="PriorityQueue">
-<meta property="article:tag" content="heapq">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/image/post_image/20210205/write2.jpeg">
-  
-    <link rel="alternate" href="/atom.xml" title="Jaylog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+    <meta name="author" content="Jay_Kim">
+
+
+    <meta name="subtitle" content="Jay's blog">
+
+
+    <meta name="description" content="blog">
+
+
+    <meta name="keywords" content="deeplearning, blog, book, life, social">
+
+
+<title>Priority Queue(우선순위큐) | Jaylog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
 
 <meta name="generator" content="Hexo 5.4.2"></head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Jaylog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Jay_log</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Jay_log</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-Priority-Queue-우선순위큐" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/02/05/Priority-Queue-%E1%84%8B%E1%85%AE%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%B1%E1%84%8F%E1%85%B2/" class="article-date">
-  <time datetime="2021-02-05T12:46:32.000Z" itemprop="datePublished">2021-02-05</time>
-</a>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
-  </div>
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Priority Queue(우선순위큐)
-    </h1>
-  
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
 
-      </header>
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Priority Queue(우선순위큐)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Jay_Kim</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 5, 2021&nbsp;&nbsp;21:46:32</a>
+                        </span>
+                    
+
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
 <p>프로그래머스: 이중우선순위 큐 풀이<br>코테 대비 후루룩 훑기(2)<br><a target="_blank" rel="noopener" href="https://programmers.co.kr/learn/courses/30/lessons/42628">https://programmers.co.kr/learn/courses/30/lessons/42628</a></p>
 </blockquote>
 <div class="image-box">
@@ -120,168 +227,75 @@
 <li><code>heapq.heapify(list)</code>: 리스트를 heap으로 만들어줌</li>
 </ul>
 
-      
+        </div>
+
+        
+
+        <!-- 댓글부분 -->
+        <br /><br />
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://longshiine.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//longshiine.disqus.com/count.js" async></script>                  
+        <br /><br />
+
+        <section class="post-tags">
+            <div>
+                <!-- <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Algorithm/"># Algorithm</a>
+                    
+                        <a href="/tags/PriorityQueue/"># PriorityQueue</a>
+                    
+                        <a href="/tags/heapq/"># heapq</a>
+                    
+                        
+                </span> -->
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/07/19/StarGAN-v2%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2/">StarGAN-v2 논문 리뷰</a>
+            
+            
+            <a class="next" rel="next" href="/2021/02/05/DFS%E1%84%8B%E1%85%AABFS/">DFS와 BFS</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2022 Jay_Kim | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/02/05/Priority-Queue-%E1%84%8B%E1%85%AE%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%B1%E1%84%8F%E1%85%B2/" data-id="clchnc9i6000hddbrhr5j7p7u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PriorityQueue/" rel="tag">PriorityQueue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/heapq/" rel="tag">heapq</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2021/07/19/StarGAN-v2%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          StarGAN-v2 논문 리뷰
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/02/05/DFS%E1%84%8B%E1%85%AABFS/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">DFS와 BFS</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EA%B8%80%EC%93%B0%EA%B8%B0/">글쓰기</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/">스타트업</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%EC%9D%BC%EC%83%81/">일상</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BellmanEquation/" rel="tag">BellmanEquation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNN/" rel="tag">CNN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ComputerVision/" rel="tag">ComputerVision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/" rel="tag">DFS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DeepLearning/" rel="tag">DeepLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dot-Product/" rel="tag">Dot Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DynamicProgramming/" rel="tag">DynamicProgramming</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/" rel="tag">GAN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GradientVanishing/" rel="tag">GradientVanishing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GridWorld/" rel="tag">GridWorld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ImageSynthesis/" rel="tag">ImageSynthesis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Inner-Product/" rel="tag">Inner Product</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MDP/" rel="tag">MDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MonteCarloApproximation/" rel="tag">MonteCarloApproximation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nepal/" rel="tag">Nepal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OptimalAuction/" rel="tag">OptimalAuction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PolicyIteration/" rel="tag">PolicyIteration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PriorityQueue/" rel="tag">PriorityQueue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QFunction/" rel="tag">QFunction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QLearning/" rel="tag">QLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReinforcementLearning/" rel="tag">ReinforcementLearning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SARSA/" rel="tag">SARSA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TemporalDifference/" rel="tag">TemporalDifference</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travel/" rel="tag">Travel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ValueFunction/" rel="tag">ValueFunction</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ValueIteration/" rel="tag">ValueIteration</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/" rel="tag">Vector</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heapq/" rel="tag">heapq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%8B%A4%ED%8C%A8/" rel="tag">실패</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%9D%BC%EC%83%81/" rel="tag">일상</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%9A%8C%EA%B3%A0/" rel="tag">회고</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 13.33px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BellmanEquation/" style="font-size: 10px;">BellmanEquation</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DeepLearning/" style="font-size: 20px;">DeepLearning</a> <a href="/tags/Dot-Product/" style="font-size: 10px;">Dot Product</a> <a href="/tags/DynamicProgramming/" style="font-size: 10px;">DynamicProgramming</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/GradientVanishing/" style="font-size: 10px;">GradientVanishing</a> <a href="/tags/GridWorld/" style="font-size: 10px;">GridWorld</a> <a href="/tags/ImageSynthesis/" style="font-size: 10px;">ImageSynthesis</a> <a href="/tags/Inner-Product/" style="font-size: 10px;">Inner Product</a> <a href="/tags/MDP/" style="font-size: 10px;">MDP</a> <a href="/tags/MonteCarloApproximation/" style="font-size: 10px;">MonteCarloApproximation</a> <a href="/tags/Nepal/" style="font-size: 10px;">Nepal</a> <a href="/tags/OptimalAuction/" style="font-size: 10px;">OptimalAuction</a> <a href="/tags/PolicyIteration/" style="font-size: 10px;">PolicyIteration</a> <a href="/tags/PriorityQueue/" style="font-size: 10px;">PriorityQueue</a> <a href="/tags/QFunction/" style="font-size: 10px;">QFunction</a> <a href="/tags/QLearning/" style="font-size: 10px;">QLearning</a> <a href="/tags/ReinforcementLearning/" style="font-size: 16.67px;">ReinforcementLearning</a> <a href="/tags/SARSA/" style="font-size: 10px;">SARSA</a> <a href="/tags/TemporalDifference/" style="font-size: 10px;">TemporalDifference</a> <a href="/tags/Travel/" style="font-size: 10px;">Travel</a> <a href="/tags/ValueFunction/" style="font-size: 10px;">ValueFunction</a> <a href="/tags/ValueIteration/" style="font-size: 10px;">ValueIteration</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/heapq/" style="font-size: 10px;">heapq</a> <a href="/tags/%EC%8B%A4%ED%8C%A8/" style="font-size: 10px;">실패</a> <a href="/tags/%EC%9D%BC%EC%83%81/" style="font-size: 10px;">일상</a> <a href="/tags/%ED%9A%8C%EA%B3%A0/" style="font-size: 10px;">회고</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/01/02/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/">2022년 회고, 스타트업 실패에 대하여</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9%20-%20(1)/">&lt;히말라야 환상방황&gt; - EP 1. 혼돈의 타멜거리</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/19/StarGAN-v2%20%E1%84%82%E1%85%A9%E1%86%AB%E1%84%86%E1%85%AE%E1%86%AB%20%E1%84%85%E1%85%B5%E1%84%87%E1%85%B2/">StarGAN-v2 논문 리뷰</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/05/Priority-Queue-%E1%84%8B%E1%85%AE%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%B1%E1%84%8F%E1%85%B2/">Priority Queue(우선순위큐)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/05/DFS%E1%84%8B%E1%85%AABFS/">DFS와 BFS</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2023 Jay_Kim<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
+
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
