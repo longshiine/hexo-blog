@@ -1,210 +1,237 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html>
 <head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8" />
 
-    <meta name="author" content="Jay_Kim">
-
-
-    <meta name="subtitle" content="Jay's blog">
-
-
-    <meta name="description" content="blog">
-
-
-    <meta name="keywords" content="deeplearning, blog, book, life, social">
-
-
-<title>강화학습 개요 | Jaylog</title>
-
-
-
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
-    <!-- stylesheets list from _config.yml -->
-    
-    <link rel="stylesheet" href="/css/style.css">
     
 
-
-
-    <!-- scripts list from _config.yml -->
     
-    <script src="/js/script.js"></script>
+    <title>강화학습 개요 | Jang. Inspiration</title>
     
-    <script src="/js/tocbot.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="ReinforcementLearning" />
+    
+    <meta name="description" content="본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 첫번째 리뷰 포스트입니다.http:&#x2F;&#x2F;www.yes24.com&#x2F;Product&#x2F;Goods&#x2F;44136413  방학이 어느새 1달여가 다 되어가는 시점이다.. 😥 1달간의 잉여생활을 청산하기 위해, 서점에 들러 강화학습 도서를 집었다. 원래는 CS234를 도전해보려 했으나, 미약한 영어실력 및 충전된">
+<meta property="og:type" content="article">
+<meta property="og:title" content="강화학습 개요">
+<meta property="og:url" content="https://longshiine.github.io/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/index.html">
+<meta property="og:site_name" content="Jang. Inspiration">
+<meta property="og:description" content="본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 첫번째 리뷰 포스트입니다.http:&#x2F;&#x2F;www.yes24.com&#x2F;Product&#x2F;Goods&#x2F;44136413  방학이 어느새 1달여가 다 되어가는 시점이다.. 😥 1달간의 잉여생활을 청산하기 위해, 서점에 들러 강화학습 도서를 집었다. 원래는 CS234를 도전해보려 했으나, 미약한 영어실력 및 충전된">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://longshiine.github.io/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/learning.png">
+<meta property="article:published_time" content="2021-01-19T07:09:49.000Z">
+<meta property="article:modified_time" content="2023-01-06T05:20:03.956Z">
+<meta property="article:author" content="Jangyeong Kim">
+<meta property="article:tag" content="ReinforcementLearning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://longshiine.github.io/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/learning.png">
     
 
+    
 
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
 
     
     
         
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6RW6NYPPH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6RW6NYPPH');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
     
 
 
 <meta name="generator" content="Hexo 5.4.2"></head>
+
 <body>
-    <div class="wrapper">
-        <header>
-    <nav class="navbar">
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">Jay_log</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
-        </div>
-    </nav>
-
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">Jay_log</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
                 </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/archives">Posts</a>
-                
-                    <a class="menu-item" href="/category">Categories</a>
-                
-                    <a class="menu-item" href="/tag">Tags</a>
-                
-                    <a class="menu-item" href="/about">About</a>
-                
-            </div>
-        </div>
-    </nav>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/">Tech</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/">Writing</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
 
-</header>
-<script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
-    }
-</script>
-        <div class="main">
-            <div class="container">
-    
-    
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
 </div>
-
 <script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
 </script>
-    
 
-    
-    <article class="post-wrap">
-        <header class="post-header">
-            <h1 class="post-title">강화학습 개요</h1>
-            
-                <div class="post-meta">
-                    
-                        Author: <a itemprop="author" rel="author" href="/">Jay_Kim</a>
-                    
+<script src="/js/insight.js"></script>
 
-                    
-                        <span class="post-time">
-                        Date: <a href="#">January 19, 2021&nbsp;&nbsp;16:09:49</a>
-                        </span>
-                    
 
-                    
-                        <span class="post-category">
-                    Category:
-                            
-                                <a href="/categories/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a>
-                            
-                        </span>
-                    
+</div>
+                        </nav>
+                    </div>
                 </div>
-            
-        </header>
+            </div>
+        </div>
+    </div>
+</header>
 
-        <div class="post-content">
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2021/01/19/강화학습-개요" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        강화학습 개요
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/" class="article-date">
+       <time datetime="2021-01-19T07:09:49.000Z" itemprop="datePublished">2021-01-19</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/" class="article-date">
+     <time datetime="2023-01-06T05:20:03.956Z" itemprop="dateModified">2023-01-06</time>
+  </a>
+</div>
+ -->
+
+                
+   <div class="article-counter">
+      <!-- <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">1.2k</span> -->
+      <i class="fa fa-clock-o"></i>
+      <!-- <span class="post-time-item-text">Reading time: </span> -->
+      <span class="post-count">7 mins. </span>
+   </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/ReinforcementLearning/" rel="tag">ReinforcementLearning</a>
+    </div>
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
             <blockquote>
 <p>본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 첫번째 리뷰 포스트입니다.<br><a target="_blank" rel="noopener" href="http://www.yes24.com/Product/Goods/44136413">http://www.yes24.com/Product/Goods/44136413</a></p>
 </blockquote>
@@ -228,10 +255,7 @@
 </ol>
 <p>즉, 강화라는 것은 동물이 이전에 배우지 않았지만 직접 시도하면서 행동과 그 결과로 나타나는 좋은 보상사이의 상관관계를 학습하는 것이다</p>
 <h3 id="머신러닝과-강화학습"><a href="#머신러닝과-강화학습" class="headerlink" title="머신러닝과 강화학습"></a>머신러닝과 강화학습</h3><p>강화학습을 정의하려면 행동심리학의 강화라는 개념 이외에 머신러닝을 알아야 하는데 머신러닝은 다음과 같이 크게 세 가지로 나뉜다.</p>
-<div class="image-box">
-                <img src="/image/post_image/20210119/learning.png" style="width:300px; height:220px" alt="머신러닝 종류" title="" class="">
-                <p class="image-box-title">머신러닝 종류</p>
-            </div>
+<img src="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/learning.png" class="" width="300" height="220" title="머신러닝 종류" alt="머신러닝 종류">
 
 <ul>
 <li><code>지도학습(Supervised Learning)</code>: 회귀분석(Regression), 분류(Classification)</li>
@@ -241,10 +265,7 @@
 <p>강화학습은 지도학습, 비지도학습과 그 성격이다르다. 정답이 주어진 것은 아니지만 그저 주어진 데이터에 대해 학습하는 것도 아니기 때문이다. 강화학습은 <strong>보상(reward)</strong> 을 통해 학습한다. 보상은 컴퓨터가 선택한 <strong>행동(Action)</strong> 에 대한 환경의 반응이다. 이 보상은 직접적인 답은 아니지만 컴퓨터에게는 간접적인 정답의 역할을 한다.</p>
 <p>강화학습을 수행하는 컴퓨터는 행동심리학에서 살펴본 강화처럼 보상을 얻게 하는 행동을 점점 많이 하도록 학습한다.</p>
 <h3 id="스스로-학습하는-컴퓨터-에이전트"><a href="#스스로-학습하는-컴퓨터-에이전트" class="headerlink" title="스스로 학습하는 컴퓨터, 에이전트"></a>스스로 학습하는 컴퓨터, 에이전트</h3><p>앞으로 강화학습을 통해 스스로 학습하는 컴퓨터를 <code>에이전트(Agent)</code>라고 할 것이다. 에이전트는 환경에 대해 사전지식이 없는 상태에서 학습을 한다. 에이전트는 자신이 놓인 환경에서 자신의 상태를 인식한 후 행동한다. 그러면 환경은 에이전트에게 보상을 주고 다음 상태를 알려준다(아래의 그림처럼 말이다!). 에이전트는 자신의 행동과 행동의 결과를 보상을 통해 학습하면서 어떤 행동을 해야 좋은 결과를 얻게 되는지 알게 된다.</p>
-<div class="image-box">
-                <img src="/image/post_image/20210119/agent.png" style="Agent" alt="" title="" class="">
-                <p class="image-box-title"></p>
-            </div>
+<img src="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/agent.png" class="" width="550" height="220" title="Agent" alt="Agent">
 
 <p>강화학습의 목적은 에이전트가 환경을 탐색하면서 얻는 보상들의 합을 최대화하는 <code>최적의 행동양식, 또는 정책</code>을 학습하는 것이다.</p>
 <h3 id="강화학습의-장점"><a href="#강화학습의-장점" class="headerlink" title="강화학습의 장점"></a>강화학습의 장점</h3><p>이러한 강화학습의 장점은 무엇일까?</p>
@@ -257,10 +278,7 @@
 <p><strong>“강화학습은 결정을 순차적으로 내려야 하는 문제에 적용된다”</strong></p>
 </blockquote>
 <p>결정을 순차적으로 내려야하는 문제라는 것은 예를 들어 현재 위치에서 행동을 한번 선택하는 것이 아니라 계속적으로 선택해야 하는 아래의 게임 같은 것이다.</p>
-<div class="image-box">
-                <img src="/image/post_image/20210119/game.png" style="width:400px; height:350px" alt="순차적으로 행동을 결정해야 하는 문제" title="" class="">
-                <p class="image-box-title">순차적으로 행동을 결정해야 하는 문제</p>
-            </div>
+<img src="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/game.png" class="" width="400" height="350" title="순차적으로 행동을 결정해야 하는 문제" alt="순차적으로 행동을 결정해야 하는 문제">
 
 <p>에이전트가 문제에 대하여 학습하고 발전하려면 <strong>문제를 수학적으로 표현</strong> 해야한다. 순차적으로 행동을 결정하는 문제를 정의할 때 사용하는 방법이 <code>MDP(Markov Decision Process)</code>이다. MDP는 순차적 행동 결정문제를 수학적으로 정의해서 에이전트가 순차적 행동 결정 문제에 접근할 수 있게 한다.</p>
 <h3 id="순차적-행동-결정-문제의-구성요소"><a href="#순차적-행동-결정-문제의-구성요소" class="headerlink" title="순차적 행동 결정 문제의 구성요소"></a>순차적 행동 결정 문제의 구성요소</h3><p>수학적으로 정의된 문제는 다음과 같은 구성요소를 가진다. 이 구성 요소들을 MDP라 부르며 2장에서 자세히 다룬다.</p>
@@ -274,10 +292,7 @@
 <p>순차적 행동 결정 문제에서 구해야할 답은 바로 <code>정책</code>이다. 에이전트가 보상을 얻으려면 행동을 해야 하는데 특정 상태가 아닌 모든 상태에 대해 어떤 행동을 해야 할지 알아야 한다. 이렇게 모든 상태에 대해 에이전트가 어떤 행동을 해야하는지 정해놓은 것이 정책이다.</p>
 <p>순차적 행동 결정 문제를 풀었다고 한다면 제일 좋은 정책을 에이전트가 얻었다는 것이다. 제일 좋은 정책은 <code>최적정책(optimal policy)</code>이라고 하며 에이전트는 최적 정책에 따라 행동했을 때 보상의 합을 최대로 받을 수 있다.</p>
 <h3 id="강화학습의-예시-브레이크-아웃"><a href="#강화학습의-예시-브레이크-아웃" class="headerlink" title="강화학습의 예시: 브레이크 아웃"></a>강화학습의 예시: 브레이크 아웃</h3><p>이 책에서는 강화학습을 통해 몇가지 간단한 게임을 학습해본다. 그중에서 마지막 게임인 “브레이크 아웃” 즉, 벽돌깨기에 강화학습을 어떤 식으로 적용하는지 알아보자.</p>
-<div class="image-box">
-                <img src="/image/post_image/20210119/breakout.jpg" style="width:200px; height:300px" alt="break out" title="" class="">
-                <p class="image-box-title">break out</p>
-            </div>
+<img src="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/breakout.jpg" class="" width="200" height="300" title="break out" alt="break out">
 
 <p><strong>벽돌깨기에 강화학습을 적용하려면 어떻게 해야할까?</strong><br>이 말은 곧 <strong>벽돌깨기의 MDP를 어떻게 구성해야 할까?</strong> 라는 질문과도 같다. 또한 에이전트는 어떻게 학습을 해야할지에 대해서도 생각을 해보아야 한다.</p>
 <ol>
@@ -297,10 +312,7 @@
 <li>그에 따라 보상을 받게 되면 그 보상을 통해 학습한다.</li>
 <li>결국 사람처럼 혹은 사람보다 잘하게 된다.</li>
 </ul>
-<div class="image-box">
-                <img src="/image/post_image/20210119/DQN.png" style="width:500px; height:200px" alt="DQN" title="" class="">
-                <p class="image-box-title">DQN</p>
-            </div>
+<img src="/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/DQN.png" class="" width="500" height="200" title="DQN" alt="DQN">
 
 <p>강화학습을 통해 학습되는 것은 <strong>인공신경망이다</strong>(인공신경망에 대해서는 5장에서 다뤄진다.) 인공신경망의 입력으로 위의 그림과 같은 4개의 연속적인 게임 화면이 들어온다. 인공신경망으로 입력이 들어오면 그 상태에서 에이전트가 할 수 있는 행동이 얼마나 좋은지 출력으로 내놓는다. 행동이 얼마나 좋은지가 행동의 가치가 되고 이것을 <code>큐함수(Q Function)</code>라고 한다.</p>
 <p>이 문제에 사용한 인공신경망을 <code>DQN(Deep Q-Network)</code>라고 하는데 DQN에 상태가 입력으로 들어오면 DQN은 그 상태에서 제자리, 왼쪽, 오른쪽 행동의 큐함수를 출력으로 내놓는다. 에이전트는 출력으로 나오는 큐함수에 따라서 행동한다. 즉, DQN이 출력한 큐함수를 보고 큰가치를 지니는 행동을 선택하는 것이다. 에이전트가 그행동을 취하면 환경은 에이전트에게 보상과 다음 상태를 알려준다. 에이전트는 환경과 상호작용하면서 DQN을 더 많은 보상을 받도록 조금씩 조정한다.</p>
@@ -314,72 +326,419 @@
 </blockquote>
 
         </div>
+        <footer class="article-footer">
+            
 
+
+
+    <a data-url="https://longshiine.github.io/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/" data-id="clck607c4000begbr924ychxf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Jangyeong Kim"
+        },
+        "headline": "강화학습 개요",
+        "image": "https://longshiine.github.io/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/learning.png",
+        "keywords": "ReinforcementLearning",
+        "genre": "Tech 강화학습",
+        "datePublished": "2021-01-19",
+        "dateCreated": "2021-01-19",
+        "dateModified": "2023-01-06",
+        "url": "https://longshiine.github.io/2021/01/19/강화학습-개요/",
+        "description": "
+본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 첫번째 리뷰 포스트입니다.http://www.yes24.com/Product/Goods/44136413
+
+방학이 어느새 1달여가 다 되어가는 시점이다.. 😥
+1달간의 잉여생활을 청산하기 위해, 서점에 들러 강화학습 도서를 집었다. 원래는 CS234를 도전해보려 했으나, 미약한 영어실력 및 충전된 ",
+        "wordCount": 1243
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
         
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
-        <!-- 댓글부분 -->
-        <br /><br />
-        <div id="disqus_thread"></div>
-        <script>
-            /**
-            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-            /*
-            var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-            };
-            */
-            (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://longshiine.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <script id="dsq-count-scr" src="//longshiine.disqus.com/count.js" async></script>                  
-        <br /><br />
 
-        <section class="post-tags">
-            <div>
-                <!-- <span>Tag(s):</span>
-                <span class="tag">
-                    
-                    
-                        <a href="/tags/DeepLearning/"># DeepLearning</a>
-                    
-                        <a href="/tags/ReinforcementLearning/"># ReinforcementLearning</a>
-                    
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <!-- <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/jangyeong-kim-b7924422a/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jangyoung0108/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/long_shiine/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/longshiine" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div> -->
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/01/20/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B8%B0%EC%B4%881/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            강화학습 기초: MDP(Markov Decision Process)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/01/03/Optimal-Auction-Through-Deep-Learning-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Optimal Auction Through Deep Learning(1)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
                         
-                </span> -->
-            </div>
-            <div>
-                <a href="javascript:window.history.back();">back</a>
-                <span>· </span>
-                <a href="/">home</a>
-            </div>
-        </section>
-        <section class="post-nav">
-            
-                <a class="prev" rel="prev" href="/2021/01/20/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B8%B0%EC%B4%88(2)/">강화학습 기초1: MDP(Markov Decision Process)</a>
-            
-            
-            <a class="next" rel="next" href="/2021/01/03/Optimal-Auction-Through-Deep-Learning-1/">Optimal Auction Through Deep Learning(1)</a>
-            
-        </section>
+                        <div class="item-thumbnail">
+                            <a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.unsplash.com/photo-1641945512297-538a81b13f85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)" alt="2022년 회고, 스타트업 실패에 대하여" class="thumbnail-image"></span>
+    
+    
+</a>
 
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a></p>
+                            <p class="item-title"><a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="title">2022년 회고, 스타트업 실패에 대하여</a></p>
+                            <p class="item-date"><time datetime="2022-12-31T09:32:06.000Z" itemprop="datePublished">2022-12-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.unsplash.com/photo-1584884255471-e92d057f10ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)" alt="&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리" class="thumbnail-image"></span>
+    
+    
+</a>
 
-    </article>
-</div>
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a></p>
+                            <p class="item-title"><a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" class="title">&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리</a></p>
+                            <p class="item-date"><time datetime="2022-12-28T09:14:19.000Z" itemprop="datePublished">2022-12-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/07/19/StarGAN-v2-review/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2021/07/19/StarGAN-v2-review/intro.png)" alt="StarGAN-v2 논문 리뷰" class="thumbnail-image"></span>
+    
+    
+</a>
 
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></p>
+                            <p class="item-title"><a href="/2021/07/19/StarGAN-v2-review/" class="title">StarGAN-v2 논문 리뷰</a></p>
+                            <p class="item-date"><time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">2021-07-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/02/05/Priority-Queue/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2021/02/05/Priority-Queue/write2.jpeg)" alt="Priority Queue(우선순위큐)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2021/02/05/Priority-Queue/" class="title">Priority Queue(우선순위큐)</a></p>
+                            <p class="item-date"><time datetime="2021-02-05T12:46:32.000Z" itemprop="datePublished">2021-02-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/02/05/DFS%EC%99%80-BFS/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/2021/02/05/DFS%EC%99%80-BFS/write.jpeg)" alt="DFS와 BFS" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2021/02/05/DFS%EC%99%80-BFS/" class="title">DFS와 BFS</a></p>
+                            <p class="item-date"><time datetime="2021-02-05T04:50:29.000Z" itemprop="datePublished">2021-02-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
         </div>
-        <footer id="footer" class="footer">
-    <div class="copyright">
-        <span>© 2022 Jay_Kim | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/">Writing</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 13.33px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BellmanEquation/" style="font-size: 10px;">BellmanEquation</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DeepLearning/" style="font-size: 16.67px;">DeepLearning</a> <a href="/tags/Dot-Product/" style="font-size: 10px;">Dot Product</a> <a href="/tags/DynamicProgramming/" style="font-size: 10px;">DynamicProgramming</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/GradientVanishing/" style="font-size: 10px;">GradientVanishing</a> <a href="/tags/GridWorld/" style="font-size: 10px;">GridWorld</a> <a href="/tags/Inner-Product/" style="font-size: 10px;">Inner Product</a> <a href="/tags/MDP/" style="font-size: 10px;">MDP</a> <a href="/tags/MonteCarloApproximation/" style="font-size: 10px;">MonteCarloApproximation</a> <a href="/tags/Nepal/" style="font-size: 10px;">Nepal</a> <a href="/tags/OptimalAuction/" style="font-size: 10px;">OptimalAuction</a> <a href="/tags/PolicyIteration/" style="font-size: 10px;">PolicyIteration</a> <a href="/tags/PriorityQueue/" style="font-size: 10px;">PriorityQueue</a> <a href="/tags/QLearning/" style="font-size: 10px;">QLearning</a> <a href="/tags/ReinforcementLearning/" style="font-size: 20px;">ReinforcementLearning</a> <a href="/tags/SARSA/" style="font-size: 10px;">SARSA</a> <a href="/tags/TemporalDifference/" style="font-size: 10px;">TemporalDifference</a> <a href="/tags/Travel/" style="font-size: 10px;">Travel</a> <a href="/tags/ValueFunction/" style="font-size: 10px;">ValueFunction</a> <a href="/tags/ValueIteration/" style="font-size: 10px;">ValueIteration</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/heapq/" style="font-size: 10px;">heapq</a> <a href="/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/" style="font-size: 10px;">스타트업</a> <a href="/tags/%EC%9D%BC%EA%B8%B0/" style="font-size: 10px;">일기</a> <a href="/tags/%ED%9A%8C%EA%B3%A0/" style="font-size: 10px;">회고</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Jangyeong Kim</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
     </div>
 </footer>
 
     </div>
+    
+    
+    <script>
+    var disqus_shortname = 'longshiine';
+    
+    
+    var disqus_url = 'https://longshiine.github.io/2021/01/19/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5-%EA%B0%9C%EC%9A%94/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+      <script data-ad-client="ca-pub-2555870048154123" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
 </body>
 </html>
