@@ -6,27 +6,28 @@
     
 
     
-    <title>2022년 회고, 스타트업 실패에 대하여 | Jang. Inspiration</title>
+    <title>강화학습 기초: MDP(Markov Decision Process) | Jang. Inspiration</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="스타트업,회고" />
+    <meta name="keywords" content="DeepLearning,ReinforcementLearning,MDP" />
     
-    <meta name="description" content="잠시 멈춰두었던 시계를 다시 돌릴 시간이다.22년을 보내고, 23년을 맞이하기 위해 노트를 펼쳤다. 불안, 긴장, 책임감, 무력함. 한 해동안 나를 휘감고 있었던 감정들을 내려두고 숨을 가다듬는 시간을 보내다보니, 정신이 맑아지며 그간 정리하지 못했던 생각들이 정리되기 시작했다. ‘멈추면, 비로소 보이는 것들’은 분명 존재한다.    왜 실패했는가?첫째는">
+    <meta name="description" content="본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 두번째 리뷰 포스트입니다.http:&#x2F;&#x2F;www.yes24.com&#x2F;Product&#x2F;Goods&#x2F;44136413  2장 강화학습 기초 1: MDP(Markov Decision Process) MDP앞서 살펴보았듯 MDP는 순차적으로 결정해야하는 문제를 수학적으로 표현한다.   문제를 잘못 정의하면 에이전트가">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2022년 회고, 스타트업 실패에 대하여">
-<meta property="og:url" content="https://longshiine.github.io/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/index.html">
+<meta property="og:title" content="강화학습 기초: MDP(Markov Decision Process)">
+<meta property="og:url" content="https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/index.html">
 <meta property="og:site_name" content="Jang. Inspiration">
-<meta property="og:description" content="잠시 멈춰두었던 시계를 다시 돌릴 시간이다.22년을 보내고, 23년을 맞이하기 위해 노트를 펼쳤다. 불안, 긴장, 책임감, 무력함. 한 해동안 나를 휘감고 있었던 감정들을 내려두고 숨을 가다듬는 시간을 보내다보니, 정신이 맑아지며 그간 정리하지 못했던 생각들이 정리되기 시작했다. ‘멈추면, 비로소 보이는 것들’은 분명 존재한다.    왜 실패했는가?첫째는">
+<meta property="og:description" content="본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 두번째 리뷰 포스트입니다.http:&#x2F;&#x2F;www.yes24.com&#x2F;Product&#x2F;Goods&#x2F;44136413  2장 강화학습 기초 1: MDP(Markov Decision Process) MDP앞서 살펴보았듯 MDP는 순차적으로 결정해야하는 문제를 수학적으로 표현한다.   문제를 잘못 정의하면 에이전트가">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.unsplash.com/photo-1641945512297-538a81b13f85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80">
-<meta property="article:published_time" content="2022-12-31T09:32:06.000Z">
-<meta property="article:modified_time" content="2023-01-06T06:52:04.621Z">
+<meta property="og:image" content="https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/MDP.png">
+<meta property="article:published_time" content="2021-01-20T11:42:17.000Z">
+<meta property="article:modified_time" content="2023-01-06T05:25:16.469Z">
 <meta property="article:author" content="Jangyeong Kim">
-<meta property="article:tag" content="스타트업">
-<meta property="article:tag" content="회고">
+<meta property="article:tag" content="DeepLearning">
+<meta property="article:tag" content="ReinforcementLearning">
+<meta property="article:tag" content="MDP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1641945512297-538a81b13f85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80">
+<meta name="twitter:image" content="https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/MDP.png">
     
 
     
@@ -165,19 +166,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Writing/">Writing</a>
+    <a class="page-title-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-2022/12/31/2022년-회고" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-2021/01/20/Reinforcement-Learning-Basic-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        2022년 회고, 스타트업 실패에 대하여
+        강화학습 기초: MDP(Markov Decision Process)
         </h1>
     
 
@@ -188,16 +189,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="article-date">
-       <time datetime="2022-12-31T09:32:06.000Z" itemprop="datePublished">2022-12-31</time>
+    <a href="/2021/01/20/Reinforcement-Learning-Basic-1/" class="article-date">
+       <time datetime="2021-01-20T11:42:17.000Z" itemprop="datePublished">Jan 20, 2021</time>
     </a>
   </div>
 
 <!-- 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="article-date">
-     <time datetime="2023-01-06T06:52:04.621Z" itemprop="dateModified">2023-01-06</time>
+  <a href="/2021/01/20/Reinforcement-Learning-Basic-1/" class="article-date">
+     <time datetime="2023-01-06T05:25:16.469Z" itemprop="dateModified">Jan 06, 2023</time>
   </a>
 </div>
  -->
@@ -206,10 +207,10 @@
    <div class="article-counter">
       <!-- <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">512</span> -->
+      <span class="post-count">1.1k</span> -->
       <i class="fa fa-clock-o"></i>
       <!-- <span class="post-time-item-text">Reading time: </span> -->
-      <span class="post-count">3 mins. </span>
+      <span class="post-count">7 mins. </span>
    </div>
 
 
@@ -218,7 +219,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/" rel="tag">스타트업</a>, <a class="tag-link-link" href="/tags/%ED%9A%8C%EA%B3%A0/" rel="tag">회고</a>
+        <a class="tag-link-link" href="/tags/DeepLearning/" rel="tag">DeepLearning</a>, <a class="tag-link-link" href="/tags/MDP/" rel="tag">MDP</a>, <a class="tag-link-link" href="/tags/ReinforcementLearning/" rel="tag">ReinforcementLearning</a>
     </div>
 
                 
@@ -233,23 +234,58 @@
 
             
 
-            <h3 id="잠시-멈춰두었던-시계를-다시-돌릴-시간이다"><a href="#잠시-멈춰두었던-시계를-다시-돌릴-시간이다" class="headerlink" title="잠시 멈춰두었던 시계를 다시 돌릴 시간이다."></a>잠시 멈춰두었던 시계를 다시 돌릴 시간이다.</h3><p>22년을 보내고, 23년을 맞이하기 위해 노트를 펼쳤다. 불안, 긴장, 책임감, 무력함. 한 해동안 나를 휘감고 있었던 감정들을 내려두고 숨을 가다듬는 시간을 보내다보니, 정신이 맑아지며 그간 정리하지 못했던 생각들이 정리되기 시작했다. ‘멈추면, 비로소 보이는 것들’은 분명 존재한다.</p>
-<br>
-<img src="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/facebook_message.JPG" class="" width="320" height="400" title="권도균 대표님과의 마지막 메세지" alt="권도균 대표님과의 마지막 메세지">
+            <blockquote>
+<p>본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 두번째 리뷰 포스트입니다.<br><a target="_blank" rel="noopener" href="http://www.yes24.com/Product/Goods/44136413">http://www.yes24.com/Product/Goods/44136413</a></p>
+</blockquote>
+<h2 id="2장-강화학습-기초-1-MDP-Markov-Decision-Process"><a href="#2장-강화학습-기초-1-MDP-Markov-Decision-Process" class="headerlink" title="2장 강화학습 기초 1: MDP(Markov Decision Process)"></a>2장 강화학습 기초 1: MDP(Markov Decision Process)</h2><hr>
+<h3 id="MDP"><a href="#MDP" class="headerlink" title="MDP"></a><strong>MDP</strong></h3><p>앞서 살펴보았듯 <code>MDP</code>는 순차적으로 결정해야하는 문제를 수학적으로 표현한다.</p>
+<img src="/2021/01/20/Reinforcement-Learning-Basic-1/MDP.png" class="" width="500" height="150" title="MDP의 구성요소" alt="MDP의 구성요소">
 
-<h3 id="왜-실패했는가"><a href="#왜-실패했는가" class="headerlink" title="왜 실패했는가?"></a>왜 실패했는가?</h3><p>첫째는 창업에 있어 스스로의 뚜렷한 목표가 부재했다. 커다란 부를 이루고 싶다던지, 특정 고객의 문제를 반드시 풀어내고야 말겠다던지 따위의 개인적인 목표가 부재했다. 목표의 부재는 방향성의 모호함으로, 방황의 연속으로 이어졌다. 어릴적부터 창업을 하고 싶었고, Generative AI는 혁신적이었으며, 좋은 기회가 주어져 시작되었던 첫 창업은 뚜렷한 개인적 목표와 동작하는 비즈니스 사이의 공생 관계를 만들어내지 못하며 한 편의 표류기가 되고 말았다.</p>
-<p>둘째는 남들과 비교하며, 조급해했다. 비교대상은 주로, 성공한 실리콘밸리 스타트업의 초기 모습 혹은 현재 활동 중인 동년배의 한국 창업가들이었다. 뚜렷하고 내적인 목표가 부재했기에, 외적 기준에 따른 비교가 자주 일어났다. 그러나 외적 비교를 통한 진단이나 개선 방안을 마련하는 행위는 자신만의 비즈니스를 일구는 데에 크게 도움이 되지 않았다. 오히려 마음이 조급해지고 심리적으로 위축될 뿐이였다. 더구나 누군가와 함께 하는 상황, 나아가 책임을 져야하는 자리에 있는 상황에서의 부담감은 꽤나 커다란 그릇을 요했고, 나의 종지만한 그릇에 담아내고자 할 때면 늘 넘쳐버리고야 말았다.</p>
-<p>셋째는 능력과 경험이 부족했다. 이 부분의 경우에는 같은 조건에서도 충분히 훌륭한 기업을 일구어내는 사례들이 정말 많기에, 포기하지 않는 시간이 이어지다보면 극복되는 요인이라 생각한다. 때문에 내가 끝까지 붙잡고 늘어지지 못한 탓이 크다고 생각한다. 물론 나라는 사람이 무지한 상태에서 홀로 배우며, 기업을 성장시키는 재능을 갖추지 못하고 있는 탓일 수도 있다. 그러나, 그러한 재능을 갖추고 있는지 여부는 자신이 직접 몸을 던져보는 수 밖에 없기에, 배움의 의미가 더 컸다고 생각한다. 능력과 경험을 갖추는 시간이 필요하겠다.</p>
-<br>
-<img src="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/father_letter.JPG" class="" width="320" height="400" title="아버지의 신년 편지" alt="아버지의 신년 편지">
+<p>문제를 잘못 정의하면 에이전트가 학습을 못할 수도 있다. 따라서 문제의 정의는 에이전트가 학습하는 데 가장 중요한 단계 중 하나이다. 에이전트를 구현하는 사람은 학습하기에 많지도 않고 적지도 않은 <strong>적절한 정보</strong>를 에이전트가 알 수도 있도록 문제를 정의해야 한다. <code>MDP</code>의 이해를 돕기위해 이제 <code>그리드 월드(Grid World)</code>라는 예제를 살펴볼 것인데, 그리드는 격자이고 그리드 월드는 격자로 이뤄진 환경에서 문제를 푸는 각종 예제를 뜻한다. 어디한번 MDP의 구성요소를 하나하나 살펴보자.</p>
+<h3 id="상태"><a href="#상태" class="headerlink" title="상태"></a>상태</h3><p>$S$는 에이전트가 관찰 가능한 상태의 집합이다. 상태라는 말의 의미가 모호할 수 있는데 <strong>자신의 상황에 대한 관찰</strong> 이 상태에 대한 가장 정확한 표현이다. 로봇과 같은 실제 세상에서의 에이전트에게 상태는 센서 값이 될 것이다. 하지만 이 책에서와 같이 게임을 학습하기 위한 에이전트는 사용자가 상태를 정의해줘야 한다. 이때 <strong>‘내가 정의하는 상태가 에이전트가 학습하기에 충분한 정보를 주는 것인가?’</strong> 라는 질문을 스스로에게 던져보는 것이 좋다.</p>
+<img src="/2021/01/20/Reinforcement-Learning-Basic-1/greedworld.png" class="" width="400" height="300" title="그리드월드에서 상태는 좌표를 의미한다" alt="그리드월드에서 상태는 좌표를 의미한다">
 
-<h3 id="무엇을-하고-싶은가"><a href="#무엇을-하고-싶은가" class="headerlink" title="무엇을 하고 싶은가?"></a>무엇을 하고 싶은가?</h3><p>여전히 스타트업이 하고 싶다. 다만, 앞선 실패로 새로운 창업 이전 메워야 할 부족함들을 파악할 수 있었다. 뚜렷한 목표를 갖추어 내적 동기를 강력한 성장 엔진으로 삼아야 할 것이며, 필요한 능력과 경험을 갖추어야 할 것이다. 짧지 않은 시간일 것이다.</p>
-<p>솔직히 현재의 내게는 커다란 부를 갖추어 마음껏 소비하고 싶다는 욕망이 크게 없다. 부를 이루게 된다고 해도 또다시 새로운 창업을 하고 싶을 것만 같다. 돈의 역할은 성과지표 혹은 임팩트를 측정하는 수단인 듯 하다. 임팩트를 만들어내는 창업가들이 존경스럽다. 사람들의 삶에 영향을 미치는 제품들이 경이롭다. 훌륭한 제품, 인재, 문화의 3요소를 갖추고 있는 기업들이 멋지다. 오랜기간 혁신을 만들어내는 기업을 만들고 싶다. 높은 기업가치는 분명 사회에 긍정적 영향을 돌려주는 데에 더 큰 힘을 낼 수 있을 것이므로, 가능하다면 큰 기업을. 무모한 생각이나, 목표는 항상 크게 잡는 것이 좋다. 그래야 질리지 않고 오래간다.</p>
-<p>현재로서는 AI가 내게 일련의 본진이 되어줄 것 같고, 관련된 공부나 경험을 이어나갈 것 같다. AI가 삶의 방식을 바꾸어 나갈 것임을 믿어 의심치 않는다. 스마트폰을 통한 초연결 이후 새로운 패러다임은 AI와 로봇을 통한 초자동화일 것이다. 다만 실패를 통해 배운 점 중 또다른 하나는 미래를 보다 구체적으로 그릴 필요가 있다는 점이다. 추상적이고 단편적인 토대 위에 세워진 전략은 금방 무너진다. 패러다임에서 특정 문제로, 기술로, 제품으로, 전략으로, 결과로 명료하게 치환해 낼 수 있어야 할 것이다.</p>
-<br>
-<img src="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/instagram_message.JPG" class="" width="320" height="400" title="동녘의 동기부여 메세지" alt="동녘의 동기부여 메세지">
+<p>위의 그림과 같이 그리드월드(5x5)에서는 <strong>격자 상의 각 위치(좌표)</strong> 가 상태가 된다. 그리드월드(5x5)의 상태는 모든 격자의 위치로서 총 25개가 있다. 각 상태는 (x,y)로 이뤄진 좌표로서 그리드월드의 가로축이 x축이고 세로축이 y축이다. 식으로는 다음과 같이 표현할 수 있다.</p>
+<p>$$S = \{ (1,1),(1,2),(1,3),…,(5,5)\} $$</p>
+<p>에이전트는 시간에 따라 25개의 상태의 집합 안에 있는 상태를 탐험하게 된다. 시간은 t라고 표현하고, 시간 t일때의 상태를 $S_t$라고 표현하는데, 만약 시간이 t일때 상태가 (1,3)이라면 $S_t = (1,3)$와 같이 표현한다.</p>
+<p><code>MDP</code> 에서 상태는 시간에 따라 확률적으로 변한다. t = 1일때 상태는 $S_t=(1,3)$일 수도 $S_t=(4,2)$일 수도 있다. 시간 t에서 에이전트가 있을 상태가 <strong>확률 변수</strong> 라는 뜻이다. 예를 들어 주사위를 던진다고 할때, 주사위를 던지는 실험은 임의 실험이고 주사위를 던져서 나오는 값은 변수가 된다. 임의의 실험에서 나오는 변수는 자신이 나타날 확률값을 가지고 있으며, 이 변수는 확률 변수가 된다. 보통 <strong>“시간 t에서의 상태 $S_t$가 어떤 상태 $s$다”</strong> 를 표현할때 $S_t = s$와 같이 적는다.</p>
+<blockquote>
+<p>임의의 시간 t에서의 상태 =&gt; $S_t$ &gt; $S_t$가 어떤 상태 $s$다 =&gt; $S_t = s$</p>
+</blockquote>
+<h3 id="행동"><a href="#행동" class="headerlink" title="행동"></a>행동</h3><p>에이전트가 상태 $S_t$에서 할 수 있는 가능한 행동의 집합은 $A$이다. 보통 에이전트가 할 수 있는 행동은 모든 상태에서 같다. 따라서 하나의 집합 $A$로 나타낼 수 있다. <strong>시간 t에서의 행동 a</strong>는 $A_t = a$와 같이 표현하며, t라는 시간에 에이전트가 어떤 행동을 할지 정해져 있는 것이 아니므로 $A_t$와 같이 대문자로 표현한다. 즉 확률변수이다 그리드월드에서 에이전트가 할 수 있는 행동의 집합은 아래와 같다.</p>
+<p>$$ A = \{up, down, left, right\} $$</p>
+<p>만약 시간 t에서 $S_t=(3,1)$이고 $A_t=right$ 라면 $S_{t+1} = (4,1)$이다. 그런데 바람과 같은 예상치 못한 요소가 있다면 에이전트는 (4,1)에 도달하지 못할 수도 있고, 이러한 요소를 포함하여 에이전트가 어디로 이동할지 결정하는 것을 <code>상태 변환 확률</code>이라고 한다. 이는 조금 뒤 자세히 다루도록 하겠다.</p>
+<h3 id="보상함수"><a href="#보상함수" class="headerlink" title="보상함수"></a>보상함수</h3><p><strong>보상(reward)</strong> 은 에이전트가 학습할 수 있는 유일한 정보로서 환경이 에이전트에게 주는 정보이다. 시간 t에서 상태가 $S_t = s$이고 행동이 $A_t = a$일 때 보상함수는 아래와 같이 정의된다.</p>
+<p>$$r(s,a) = E[R_{t+1} | S_t=s, A_t=a] $$</p>
+<p>보상함수는 시간 t일 때 상태가 $S_t=s$이고 그 상태에서 행동 $A_t=a$를 했을 경우에 받을 보상에 대한 기댓값 $E$이다. 여기서 <strong>기댓값</strong> 은 무엇일까? (한번쯤 쉽게 풀어써보고 싶었는데 책의 예시가 아주 적절하다🤩)</p>
+<p><strong>기댓값</strong> 이란 일종의 평균이다. 주사위의 기댓값을 한번 생각해보면, 모든 면이 ${1 \over 6}$의 동등한 확률로 나올테고, 주사위에서는 다음과 같은 값이 나올 것이라고 <strong>기대</strong> 할 수 있다.</p>
+<p>$$기댓값_{주사위} = 1*{1 \over 6}+2*{1 \over 6}+3*{1 \over 6}+4*{1 \over 6}+5*{1 \over 6}+6*{1 \over 6} = {21 \over 6} $$</p>
+<p>다시 본론으로 돌아와, <strong>보상함수는 왜 기댓값으로 표현하는 것일까?</strong></p>
+<blockquote>
+<p>보상을 에이전트에게 주는 것은 환경이고,<br>환경에 따라서 같은 상태에서 같은 행동을 취하더라도 다른 보상을 줄 수 있기 때문이다.</p>
+</blockquote>
+<p>또한 보상함수에서 특이한 점은 에이전트가 어떤 상태에서 행동한 것은 시간 t에서인데 보상을 받는 것은 t+1이라는 것이다. 이는 보상을 에이전트가 알고 있는 것이 아니라 환경이 알려주기 때문이다. 때문에 에이전트가 받는 보상은 하나의 시간 단위가 지난 다음에 주어진다. 이 시간단위를 앞으로 <code>타임스텝(time step)</code>이라고 한다.</p>
+<h3 id="상태-변환-확률"><a href="#상태-변환-확률" class="headerlink" title="상태 변환 확률"></a>상태 변환 확률</h3><p>에이전트가 어떤 상태에서 어떤 행동을 취한다면 에이전트의 상태는 변할 것이다. $s’$은 다음 스텝에 에이전트가 갈 수 있는 어떤 특정한 상태를 의미하는데, 꼭 다음 상태에 도달하리라는 보장은 없다. 옆에서 바람이 불 수도 있고 갑자기 넘어질 수 있는 것이다. 이처럼 상태의 변화에는 확률적인 요인이 들어가고, 이를 수치적으로 표현한 것이 <code>상태 변환 확률</code> $P$이다.</p>
+<p>$$ P*{ss’}^a = P[S*{t+1} = s’| S_t=s, A_t=a]$$</p>
+<p><code>상태 변환 확률</code>은 상태 $s$에서 행동 $a$를 취했을 때 다른 상태 $s’$으로 도달할 확률이다. 이 값은 보상과 마찬가지로 에이전트가 알지 못하는 값으로서 에이전트가 아닌 환경의 일부이다. 다른 말로 <strong>환경의 모델(model)</strong> 이라 부르기도 한다.</p>
+<p>환경은 에이전트가 행동을 취하면 <code>상태 변환 확률</code>을 통해 다음에 에이전트가 갈 상태를 알려준다.</p>
+<h3 id="할인율"><a href="#할인율" class="headerlink" title="할인율"></a>할인율</h3><p>에이전트가 항상 현재에 판단을 내리기 때문에 현재에 가까운 보상일 수록 더 큰 가치를 지닌다. 가령 우리가 10억원 짜리 복권에 당첨되었다고 생각해보자. 지금 당장 받을 수도 10년 뒤에 받을 수도 있다고 할때, 우리는 당연히 당장 받는 것을 선호할 것이다. 시간이 지남에 따라 이자가 붙을 것을 가정하기 때문이다. 이는 다른 말로 <strong>같은 보상이면 나중에 받을수록 가치가 줄어든다</strong> 고 말할 수 있다. 강화학습에도 이와 같은 가정이 적용되고 이를 수학적으로 표현하기 위해 <code>할인율(Discount Factor)</code>이라는 개념을 도입한다.</p>
+<p>$$\gamma \in [0,1]$$</p>
+<p><code>할인율</code>은 0과 1사이의 값이고, 보상에 곱해지면 보상이 감소한다. 이렇게 미래의 가치를 현재의 가치로 환산하는 것을 <strong>할인한다</strong> 고 하고, 시간에 따라 할인하는 비율을 할인율이라고 한다. 만약 현재의 시간 t로부터 시간 k가 지난 후에 보상을 $R_t+k$만큼 받을 것이라고 하면 그 보상의 가치는 아래와 같다</p>
+<p>$$\gamma^{k-1}R_{t+k}$$</p>
+<blockquote>
+<p>더 먼 미래에 받는 보상일수록 현재의 에이전트는 더 작은 값으로 받아들인다.</p>
+</blockquote>
+<h3 id="정책"><a href="#정책" class="headerlink" title="정책"></a>정책</h3><p><code>정책</code>은 모든 상태에서 에이전트가 할 행동이다. 상태가 입력으로 들어오면 행동을 출력으로 내보내는 <strong>일종의 함수</strong> 라고 생각해도 좋다. 정책은 각 상태에서 단 하나의 행동만을 나타낼 수도 있고, 확률적으로 $a_1 = 10%$, $a_2= 90%$와 같이 나타낼 수도 있다. 에이전트가 학습하고 있을 땐, 정책이 하나의 행동만을 선택하기 보다는 확률적으로 여러개의 행동을 선택할 수 있어야 하며 수식으로 나타내면 아래와 같다.</p>
+<p>$$ \pi(a|s) = P[A_t = a|S_t=s]$$</p>
+<p>이러한 정책은 하나의 예시로서 각 상태마다 어떤 행동을 해야할지 아래의 그림과 같이 알려준다.</p>
+<img src="/2021/01/20/Reinforcement-Learning-Basic-1/policy.png" class="" width="300" height="300" title="그리드월드에서의 정책" alt="그리드월드에서의 정책">
 
-<h3 id="너무나-귀중한-시간이었다"><a href="#너무나-귀중한-시간이었다" class="headerlink" title="너무나 귀중한 시간이었다."></a>너무나 귀중한 시간이었다.</h3><p>도전의 기댓값은 실패이고, 과정에서 배우고 얻을 수 있는 것은 수없이 많다. 다만, 실패는 훈장이 아니다. 철저한 반추의 대상이며 같은 원인이 되풀이 되어선 안된다. 기회를 준 분들, 응원을 보내준 사람들을 생각하면 ‘좋은 경험이었다’ 퉁칠 수 없는 노릇이다. 무모한 도전과 실패에도 격려의 메세지를 보내준 많은 이들에게 부끄럽지 않은 삶을 살아내는 한 해가 되길 바라며. 굿바이 2022, 굿바이 비디에이아이.</p>
+<p>정책만 가지고 있으면 에이전트는 사실 모든 상태에서 자신이 해야 할 행동을 알 수 있다. 그러나 강화학습 문제를 통해 알고 싶은 것은 그냥 정책이 아니라 <strong>최적의 정책</strong> 이다.</p>
+<blockquote>
+<p>최적 정책을 얻기 위해서 현재의 정책보다 더 좋은 정책을 학습해나가는 것이 강화학습이다.</p>
+</blockquote>
+<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><p>이처럼 <code>MDP</code>를 통해 순차적 행동 결정 문제를 정의했다. 에이전트가 현재 상태에서 앞으로 받을 보상들을 고려해서 행동을 결정한다. 그러면 환경은 에이전트에게 실제 보상과 다음 상태를 알려준다. 이러한 과정을 반복하면서 에이전트는 어떤 상태에서 앞으로 받을 것이라 예상했던 보상에 대해 틀렸다는 것을 알게 된다. 이때 앞으로 받을 것이라 예상하는 보상을 <code>가치함수(Value Function)</code>라고 하며, 다음 장에서 설명된다. 그러한 과정에서 에이전트는 실제로 받은 보상을 토대로 가치함수와 정책을 바꿔나간다. 이러한 학습 과정을 충분히 반복한다면 가장 많은 보상을 받게하는 정책을 학습할 수 있다.</p>
 
         </div>
         <footer class="article-footer">
@@ -257,7 +293,7 @@
 
 
 
-    <a data-url="https://longshiine.github.io/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" data-id="clck607cf000megbr8hvh3qzj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/" data-id="clck73wiy0005sabr1z5a4bv5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -327,20 +363,23 @@
             "@type": "Person",
             "name": "Jangyeong Kim"
         },
-        "headline": "2022년 회고, 스타트업 실패에 대하여",
-        "image": "https://longshiine.github.iohttps://images.unsplash.com/photo-1641945512297-538a81b13f85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-        "keywords": "스타트업 회고",
-        "genre": "Writing",
-        "datePublished": "2022-12-31",
-        "dateCreated": "2022-12-31",
+        "headline": "강화학습 기초: MDP(Markov Decision Process)",
+        "image": "https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/MDP.png",
+        "keywords": "DeepLearning ReinforcementLearning MDP",
+        "genre": "Tech 강화학습",
+        "datePublished": "2021-01-20",
+        "dateCreated": "2021-01-20",
         "dateModified": "2023-01-06",
-        "url": "https://longshiine.github.io/2022/12/31/2022년-회고/",
-        "description": "잠시 멈춰두었던 시계를 다시 돌릴 시간이다.22년을 보내고, 23년을 맞이하기 위해 노트를 펼쳤다. 불안, 긴장, 책임감, 무력함. 한 해동안 나를 휘감고 있었던 감정들을 내려두고 숨을 가다듬는 시간을 보내다보니, 정신이 맑아지며 그간 정리하지 못했던 생각들이 정리되기 시작했다. ‘멈추면, 비로소 보이는 것들’은 분명 존재한다.
+        "url": "https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/",
+        "description": "
+본 포스트는 “파이썬과 케라스로 배우는 강화학습” 도서의 두번째 리뷰 포스트입니다.http://www.yes24.com/Product/Goods/44136413
+
+2장 강화학습 기초 1: MDP(Markov Decision Process)
+MDP앞서 살펴보았듯 MDP는 순차적으로 결정해야하는 문제를 수학적으로 표현한다.
 
 
-
-왜 실패했는가?첫째는 ",
-        "wordCount": 551
+문제를 잘못 정의하면 에이전트가",
+        "wordCount": 1050
     }
 </script>
 
@@ -405,10 +444,20 @@
         
 <nav id="article-nav">
     
+        <a href="/2021/01/22/Reinforcement-Learning-Basic-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            강화학습 기초: 가치함수와 벨만방정식
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
     
-        <a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" id="article-nav-older" class="article-nav-link-wrap">
+    
+        <a href="/2021/01/19/Reinforcement-Learning-Intro/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리</p>
+        <p class="article-nav-title">강화학습 개요</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -427,7 +476,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="thumbnail">
+                            <a href="/2022/12/31/2022-Retrospect/" class="thumbnail">
     
     
         <span style="background-image:url(https://images.unsplash.com/photo-1641945512297-538a81b13f85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)" alt="2022년 회고, 스타트업 실패에 대하여" class="thumbnail-image"></span>
@@ -439,15 +488,15 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a></p>
-                            <p class="item-title"><a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="title">2022년 회고, 스타트업 실패에 대하여</a></p>
-                            <p class="item-date"><time datetime="2022-12-31T09:32:06.000Z" itemprop="datePublished">2022-12-31</time></p>
+                            <p class="item-title"><a href="/2022/12/31/2022-Retrospect/" class="title">2022년 회고, 스타트업 실패에 대하여</a></p>
+                            <p class="item-date"><time datetime="2022-12-31T09:32:06.000Z" itemprop="datePublished">Dec 31, 2022</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" class="thumbnail">
+                            <a href="/2022/12/28/Himalaya-Fantasy-1/" class="thumbnail">
     
     
         <span style="background-image:url(https://images.unsplash.com/photo-1584884255471-e92d057f10ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)" alt="&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리" class="thumbnail-image"></span>
@@ -459,18 +508,18 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a></p>
-                            <p class="item-title"><a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" class="title">&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리</a></p>
-                            <p class="item-date"><time datetime="2022-12-28T09:14:19.000Z" itemprop="datePublished">2022-12-28</time></p>
+                            <p class="item-title"><a href="/2022/12/28/Himalaya-Fantasy-1/" class="title">&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리</a></p>
+                            <p class="item-date"><time datetime="2022-12-28T09:14:19.000Z" itemprop="datePublished">Dec 28, 2022</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/07/19/StarGAN-v2-review/" class="thumbnail">
+                            <a href="/2021/07/19/StarGAN-v2-Review/" class="thumbnail">
     
     
-        <span style="background-image:url(/2021/07/19/StarGAN-v2-review/intro.png)" alt="StarGAN-v2 논문 리뷰" class="thumbnail-image"></span>
+        <span style="background-image:url(/2021/07/19/StarGAN-v2-Review/intro.png)" alt="StarGAN-v2 논문 리뷰" class="thumbnail-image"></span>
     
     
 </a>
@@ -479,8 +528,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></p>
-                            <p class="item-title"><a href="/2021/07/19/StarGAN-v2-review/" class="title">StarGAN-v2 논문 리뷰</a></p>
-                            <p class="item-date"><time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">2021-07-19</time></p>
+                            <p class="item-title"><a href="/2021/07/19/StarGAN-v2-Review/" class="title">StarGAN-v2 논문 리뷰</a></p>
+                            <p class="item-date"><time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">Jul 19, 2021</time></p>
                         </div>
                     </li>
                 
@@ -500,17 +549,17 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
                             <p class="item-title"><a href="/2021/02/05/Priority-Queue/" class="title">Priority Queue(우선순위큐)</a></p>
-                            <p class="item-date"><time datetime="2021-02-05T12:46:32.000Z" itemprop="datePublished">2021-02-05</time></p>
+                            <p class="item-date"><time datetime="2021-02-05T12:46:32.000Z" itemprop="datePublished">Feb 05, 2021</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/02/05/DFS%EC%99%80-BFS/" class="thumbnail">
+                            <a href="/2021/02/05/DFS-BFS/" class="thumbnail">
     
     
-        <span style="background-image:url(/2021/02/05/DFS%EC%99%80-BFS/write.jpeg)" alt="DFS와 BFS" class="thumbnail-image"></span>
+        <span style="background-image:url(/2021/02/05/DFS-BFS/write.jpeg)" alt="DFS와 BFS" class="thumbnail-image"></span>
     
     
 </a>
@@ -519,8 +568,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
-                            <p class="item-title"><a href="/2021/02/05/DFS%EC%99%80-BFS/" class="title">DFS와 BFS</a></p>
-                            <p class="item-date"><time datetime="2021-02-05T04:50:29.000Z" itemprop="datePublished">2021-02-05</time></p>
+                            <p class="item-title"><a href="/2021/02/05/DFS-BFS/" class="title">DFS와 BFS</a></p>
+                            <p class="item-date"><time datetime="2021-02-05T04:50:29.000Z" itemprop="datePublished">Feb 05, 2021</time></p>
                         </div>
                     </li>
                 
@@ -584,7 +633,7 @@
     var disqus_shortname = 'longshiine';
     
     
-    var disqus_url = 'https://longshiine.github.io/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/';
+    var disqus_url = 'https://longshiine.github.io/2021/01/20/Reinforcement-Learning-Basic-1/';
     
     (function() {
     var dsq = document.createElement('script');

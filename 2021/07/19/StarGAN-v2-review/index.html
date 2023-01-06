@@ -15,11 +15,11 @@
     <meta name="description" content="StarGAN-v2Github: https:&#x2F;&#x2F;github.com&#x2F;clovaai&#x2F;stargan-v2 Paper: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1912.01865 Yunjey Choi, Youngjung Uh, Jaejun Yoo, Jung-Woo Ha  A good image-to-image translation model should learn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="StarGAN-v2 논문 리뷰">
-<meta property="og:url" content="https://longshiine.github.io/2021/07/19/StarGAN-v2-review/index.html">
+<meta property="og:url" content="https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/index.html">
 <meta property="og:site_name" content="Jang. Inspiration">
 <meta property="og:description" content="StarGAN-v2Github: https:&#x2F;&#x2F;github.com&#x2F;clovaai&#x2F;stargan-v2 Paper: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1912.01865 Yunjey Choi, Youngjung Uh, Jaejun Yoo, Jung-Woo Ha  A good image-to-image translation model should learn">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://longshiine.github.io/2021/07/19/StarGAN-v2-review/intro.png">
+<meta property="og:image" content="https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/intro.png">
 <meta property="article:published_time" content="2021-07-19T05:26:32.000Z">
 <meta property="article:modified_time" content="2023-01-06T06:40:53.275Z">
 <meta property="article:author" content="Jangyeong Kim">
@@ -27,7 +27,7 @@
 <meta property="article:tag" content="ComputerVision">
 <meta property="article:tag" content="GAN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://longshiine.github.io/2021/07/19/StarGAN-v2-review/intro.png">
+<meta name="twitter:image" content="https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/intro.png">
     
 
     
@@ -283,7 +283,7 @@ mjx-container[display="true"] + br {
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-2021/07/19/StarGAN-v2-review" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-2021/07/19/StarGAN-v2-Review" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
@@ -301,16 +301,16 @@ mjx-container[display="true"] + br {
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/07/19/StarGAN-v2-review/" class="article-date">
-       <time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">2021-07-19</time>
+    <a href="/2021/07/19/StarGAN-v2-Review/" class="article-date">
+       <time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">Jul 19, 2021</time>
     </a>
   </div>
 
 <!-- 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/07/19/StarGAN-v2-review/" class="article-date">
-     <time datetime="2023-01-06T06:40:53.275Z" itemprop="dateModified">2023-01-06</time>
+  <a href="/2021/07/19/StarGAN-v2-Review/" class="article-date">
+     <time datetime="2023-01-06T06:40:53.275Z" itemprop="dateModified">Jan 06, 2023</time>
   </a>
 </div>
  -->
@@ -352,7 +352,7 @@ mjx-container[display="true"] + br {
 <blockquote>
 <p>A good image-to-image translation model should learn a mapping between different visual domains while satisfying the following properties: 1) diversity of generated images and 2) scalability over multiple domains. Existing methods address either of the issues, having limited diversity or multiple models for all domains. We propose StarGAN v2, a single framework that tackles both and shows significantly improved results over the baselines. Experiments on CelebA-HQ and a new animal faces dataset (AFHQ) validate our superiority in terms of visual quality, diversity, and scalability. To better assess image-to-image translation models, we release AFHQ, high-quality animal faces with large inter- and intra-domain differences. The code, pretrained models, and dataset can be found at this https URL.</p>
 </blockquote>
-<img src="/2021/07/19/StarGAN-v2-review/intro.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/intro.png" class="">
 
 <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
 <li><p>좋은 image-to-image translation model은 다음의 특성을 만족시킨다.</p>
@@ -433,7 +433,7 @@ mjx-container[display="true"] + br {
 <li><p>우리는 사전에 학습된 각 도메인의 style space 내에서 domain-specific style vectors를 생성해 내고, <strong>G</strong>로 하여금 style vector를 반영하도록 학습시킨다.</p>
 </li>
 <li><p>아래의 Figure 2가 전체 프레임워크의 overview를 보여준다. 총 4개의 모듈로 구성된다.</p>
-<img src="/2021/07/19/StarGAN-v2-review/1.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/1.png" class="">
 
 </li>
 </ul>
@@ -533,16 +533,16 @@ mjx-container[display="true"] + br {
 <pre><code>1. visual quality  —&gt; **FID**(Frechet Inception distance): distance between two distributions of real and generated images (lower is better)
 </code></pre>
 <p><strong>Q. FID가 visual quality에 대한 지표도 포함하는가..?</strong></p>
-<img src="/2021/07/19/StarGAN-v2-review/2.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/2.png" class="">
 
 <ol>
 <li><p>diversity of generated images —&gt; <strong>LPIPS</strong>(Learned Perceptual Image Patch Similarity): (higher lis better)</p>
-<img src="/2021/07/19/StarGAN-v2-review/9.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/9.png" class="">
 </li>
 </ol>
 </li>
 <li><p>위 표는 StarGAN-v1에 v2의 모듈 혹은 기법들을 한 개씩 추가하며 measure한 것!</p>
-<img src="/2021/07/19/StarGAN-v2-review/10.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/10.png" class="">
 </li>
 <li><p>(A): StarGAN-v1의 결과 —&gt; 메이크업만을 옮겨 local change만 이끌어낼 뿐임</p>
 </li>
@@ -583,7 +583,7 @@ mjx-container[display="true"] + br {
 <p>—&gt; Generator가 stylecode를 사용하는 것에만 초점을 맞출 수 있다.</p>
 <h3 id="Second"><a href="#Second" class="headerlink" title="Second"></a><strong>Second</strong></h3><p>기존 baseline들은 style space를 fixed Gaussian distribution을 따른다는 가정을 했으나,</p>
 <p>StarGAN-v2에서는 StyleGAN의 insight에 따라, transformation에 대해 배운 style space에서 생성해냄</p>
-<img src="/2021/07/19/StarGAN-v2-review/3.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/3.png" class="">
 
 <ul>
 <li>FFHQ에 대해서도 Reference-guided synthesis가 좋은 결과를 냈다.</li>
@@ -612,9 +612,9 @@ mjx-container[display="true"] + br {
 <li>initialize the weights = He initialization</li>
 <li>set biases to zero —&gt; except for biases associated with scaling vector of AdaIN(set to one)</li>
 </ul>
-<h3 id="E-Network-architecture"><a href="#E-Network-architecture" class="headerlink" title="E. Network architecture"></a>E. Network architecture</h3><h4 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a><strong>Generator</strong></h4><img src="/2021/07/19/StarGAN-v2-review/4.png" class="">
+<h3 id="E-Network-architecture"><a href="#E-Network-architecture" class="headerlink" title="E. Network architecture"></a>E. Network architecture</h3><h4 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a><strong>Generator</strong></h4><img src="/2021/07/19/StarGAN-v2-Review/4.png" class="">
 
-<h4 id="Mapping-Network"><a href="#Mapping-Network" class="headerlink" title="Mapping Network"></a><strong>Mapping Network</strong></h4><img src="/2021/07/19/StarGAN-v2-review/5.png" class="">
+<h4 id="Mapping-Network"><a href="#Mapping-Network" class="headerlink" title="Mapping Network"></a><strong>Mapping Network</strong></h4><img src="/2021/07/19/StarGAN-v2-Review/5.png" class="">
 
 <p>—&gt; K output branches가 있는데, 이는 domain의 개수를 뜻함.</p>
 <p>—&gt; 첫 네 개의 FC는 domain간 공유되고, 뒤의 네 개는 domain별로 존재.</p>
@@ -627,7 +627,7 @@ mjx-container[display="true"] + br {
 <p>—&gt; latent code는 standard Gaussian distribution에서 sample</p>
 <p>—&gt; pixel normalization을 latent code에 적용하지 않았다.(model performance를 올리지 못하는 것으로 밝혀짐)</p>
 <p>—&gt; feture normalization도 시도해봤으나, 이도 잘 안되는 것으로 파악</p>
-<h4 id="Style-encoder"><a href="#Style-encoder" class="headerlink" title="Style encoder"></a><strong>Style encoder</strong></h4><img src="/2021/07/19/StarGAN-v2-review/6.png" class="">
+<h4 id="Style-encoder"><a href="#Style-encoder" class="headerlink" title="Style encoder"></a><strong>Style encoder</strong></h4><img src="/2021/07/19/StarGAN-v2-Review/6.png" class="">
 
 <p>—&gt; CNN with K output branch</p>
 <p>—&gt; 6개의 pre-activation residual block이 domain간에 공유</p>
@@ -649,12 +649,12 @@ mjx-container[display="true"] + br {
 </ul>
 <h1 id="Fine-Tuning-관련"><a href="#Fine-Tuning-관련" class="headerlink" title="Fine Tuning 관련"></a>Fine Tuning 관련</h1><ul>
 <li><p>Azure V100 x 8개</p>
-<img src="/2021/07/19/StarGAN-v2-review/7.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/7.png" class="">
 
 <p>—&gt; 30,000장 학습, 1개, 3일(72시간) ⇒ 8개, 9시간 2725 x 9 = <strong>24,000원</strong></p>
 </li>
 <li><p>V100 else</p>
-<img src="/2021/07/19/StarGAN-v2-review/8.png" class="">
+<img src="/2021/07/19/StarGAN-v2-Review/8.png" class="">
 </li>
 </ul>
 
@@ -664,7 +664,7 @@ mjx-container[display="true"] + br {
 
 
 
-    <a data-url="https://longshiine.github.io/2021/07/19/StarGAN-v2-review/" data-id="clck607c30006egbrbmk85tig" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/" data-id="clck73wjc000usabrbeigdmgm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -735,13 +735,13 @@ mjx-container[display="true"] + br {
             "name": "Jangyeong Kim"
         },
         "headline": "StarGAN-v2 논문 리뷰",
-        "image": "https://longshiine.github.io/2021/07/19/StarGAN-v2-review/intro.png",
+        "image": "https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/intro.png",
         "keywords": "DeepLearning ComputerVision GAN",
         "genre": "Tech 딥러닝",
         "datePublished": "2021-07-19",
         "dateCreated": "2021-07-19",
         "dateModified": "2023-01-06",
-        "url": "https://longshiine.github.io/2021/07/19/StarGAN-v2-review/",
+        "url": "https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/",
         "description": "StarGAN-v2Github: https://github.com/clovaai/stargan-v2
 Paper: https://arxiv.org/abs/1912.01865
 Yunjey Choi, Youngjung Uh, Jaejun Yoo, Jung-Woo Ha
@@ -812,7 +812,7 @@ A good image-to-image translation model should learn",
         
 <nav id="article-nav">
     
-        <a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2022/12/28/Himalaya-Fantasy-1/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
@@ -844,7 +844,7 @@ A good image-to-image translation model should learn",
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="thumbnail">
+                            <a href="/2022/12/31/2022-Retrospect/" class="thumbnail">
     
     
         <span style="background-image:url(https://images.unsplash.com/photo-1641945512297-538a81b13f85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)" alt="2022년 회고, 스타트업 실패에 대하여" class="thumbnail-image"></span>
@@ -856,15 +856,15 @@ A good image-to-image translation model should learn",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a></p>
-                            <p class="item-title"><a href="/2022/12/31/2022%EB%85%84-%ED%9A%8C%EA%B3%A0/" class="title">2022년 회고, 스타트업 실패에 대하여</a></p>
-                            <p class="item-date"><time datetime="2022-12-31T09:32:06.000Z" itemprop="datePublished">2022-12-31</time></p>
+                            <p class="item-title"><a href="/2022/12/31/2022-Retrospect/" class="title">2022년 회고, 스타트업 실패에 대하여</a></p>
+                            <p class="item-date"><time datetime="2022-12-31T09:32:06.000Z" itemprop="datePublished">Dec 31, 2022</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" class="thumbnail">
+                            <a href="/2022/12/28/Himalaya-Fantasy-1/" class="thumbnail">
     
     
         <span style="background-image:url(https://images.unsplash.com/photo-1584884255471-e92d057f10ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)" alt="&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리" class="thumbnail-image"></span>
@@ -876,18 +876,18 @@ A good image-to-image translation model should learn",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a></p>
-                            <p class="item-title"><a href="/2022/12/28/%ED%9E%88%EB%A7%90%EB%9D%BC%EC%95%BC-%ED%99%98%EC%83%81%EB%B0%A9%ED%99%A9-1/" class="title">&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리</a></p>
-                            <p class="item-date"><time datetime="2022-12-28T09:14:19.000Z" itemprop="datePublished">2022-12-28</time></p>
+                            <p class="item-title"><a href="/2022/12/28/Himalaya-Fantasy-1/" class="title">&lt;히말라야 환상방황&gt; - EP1. 혼돈의 타멜거리</a></p>
+                            <p class="item-date"><time datetime="2022-12-28T09:14:19.000Z" itemprop="datePublished">Dec 28, 2022</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/07/19/StarGAN-v2-review/" class="thumbnail">
+                            <a href="/2021/07/19/StarGAN-v2-Review/" class="thumbnail">
     
     
-        <span style="background-image:url(/2021/07/19/StarGAN-v2-review/intro.png)" alt="StarGAN-v2 논문 리뷰" class="thumbnail-image"></span>
+        <span style="background-image:url(/2021/07/19/StarGAN-v2-Review/intro.png)" alt="StarGAN-v2 논문 리뷰" class="thumbnail-image"></span>
     
     
 </a>
@@ -896,8 +896,8 @@ A good image-to-image translation model should learn",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></p>
-                            <p class="item-title"><a href="/2021/07/19/StarGAN-v2-review/" class="title">StarGAN-v2 논문 리뷰</a></p>
-                            <p class="item-date"><time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">2021-07-19</time></p>
+                            <p class="item-title"><a href="/2021/07/19/StarGAN-v2-Review/" class="title">StarGAN-v2 논문 리뷰</a></p>
+                            <p class="item-date"><time datetime="2021-07-19T05:26:32.000Z" itemprop="datePublished">Jul 19, 2021</time></p>
                         </div>
                     </li>
                 
@@ -917,17 +917,17 @@ A good image-to-image translation model should learn",
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
                             <p class="item-title"><a href="/2021/02/05/Priority-Queue/" class="title">Priority Queue(우선순위큐)</a></p>
-                            <p class="item-date"><time datetime="2021-02-05T12:46:32.000Z" itemprop="datePublished">2021-02-05</time></p>
+                            <p class="item-date"><time datetime="2021-02-05T12:46:32.000Z" itemprop="datePublished">Feb 05, 2021</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2021/02/05/DFS%EC%99%80-BFS/" class="thumbnail">
+                            <a href="/2021/02/05/DFS-BFS/" class="thumbnail">
     
     
-        <span style="background-image:url(/2021/02/05/DFS%EC%99%80-BFS/write.jpeg)" alt="DFS와 BFS" class="thumbnail-image"></span>
+        <span style="background-image:url(/2021/02/05/DFS-BFS/write.jpeg)" alt="DFS와 BFS" class="thumbnail-image"></span>
     
     
 </a>
@@ -936,8 +936,8 @@ A good image-to-image translation model should learn",
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
-                            <p class="item-title"><a href="/2021/02/05/DFS%EC%99%80-BFS/" class="title">DFS와 BFS</a></p>
-                            <p class="item-date"><time datetime="2021-02-05T04:50:29.000Z" itemprop="datePublished">2021-02-05</time></p>
+                            <p class="item-title"><a href="/2021/02/05/DFS-BFS/" class="title">DFS와 BFS</a></p>
+                            <p class="item-date"><time datetime="2021-02-05T04:50:29.000Z" itemprop="datePublished">Feb 05, 2021</time></p>
                         </div>
                     </li>
                 
@@ -1001,7 +1001,7 @@ A good image-to-image translation model should learn",
     var disqus_shortname = 'longshiine';
     
     
-    var disqus_url = 'https://longshiine.github.io/2021/07/19/StarGAN-v2-review/';
+    var disqus_url = 'https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/';
     
     (function() {
     var dsq = document.createElement('script');
