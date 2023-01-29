@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>&lt;파이썬 알고리즘 인터뷰&gt; - 15장. 힙 | Jang. Inspiration</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="naver-site-verification" content="bdfc64ddc42fb9ff7bc866fa6373e1f45671f7ea" />
+    
+    <meta name="keywords" content="Heap" />
+    
+    <meta name="description" content="도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소    15장: 힙 힙은 힙의 특성(최소 힙에서는 부모가 항상 자식보다 작거나 같다)을 만족하는 거의 완전한 트리인 특수한 트리 기반의 자료구조다.   힙은 그래프나 트리와는 전혀 관계 없어 보이는 독특한 이름과 달리, 트리 기반의 자료구조다  우선순위 큐를 사용할때 매번 활용했던 heapq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;파이썬 알고리즘 인터뷰&gt; - 15장. 힙">
+<meta property="og:url" content="https://longshiine.github.io/2023/01/22/heap/index.html">
+<meta property="og:site_name" content="Jang. Inspiration">
+<meta property="og:description" content="도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소    15장: 힙 힙은 힙의 특성(최소 힙에서는 부모가 항상 자식보다 작거나 같다)을 만족하는 거의 완전한 트리인 특수한 트리 기반의 자료구조다.   힙은 그래프나 트리와는 전혀 관계 없어 보이는 독특한 이름과 달리, 트리 기반의 자료구조다  우선순위 큐를 사용할때 매번 활용했던 heapq">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png">
+<meta property="article:published_time" content="2023-01-22T11:50:38.000Z">
+<meta property="article:modified_time" content="2023-01-29T14:47:12.206Z">
+<meta property="article:author" content="Jangyeong Kim">
+<meta property="article:tag" content="Heap">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png">
+    
+    <link rel="canonical" href="https://longshiine.github.io/2023/01/22/heap/"/>
+
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R6RW6NYPPH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R6RW6NYPPH');
+</script>
+<!-- End Google Analytics -->
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss2.xml" title="Jang. Inspiration" type="application/rss+xml">
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/">Tech</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/">Writing</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2023/01/22/heap" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        &lt;파이썬 알고리즘 인터뷰&gt; - 15장. 힙
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/01/22/heap/" class="article-date">
+       <time datetime="2023-01-22T11:50:38.000Z" itemprop="datePublished">Jan 22, 2023</time>
+    </a>
+  </div>
+
+<!-- 
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/01/22/heap/" class="article-date">
+     <time datetime="2023-01-29T14:47:12.206Z" itemprop="dateModified">Jan 29, 2023</time>
+  </a>
+</div>
+ -->
+
+                
+   <div class="article-counter">
+      <!-- <i class="fa fa-file-word-o"></i>
+      <span class="post-count-item-text">Symbols count in article: </span>
+      <span class="post-count">437</span> -->
+      <i class="fa fa-clock-o"></i>
+      <!-- <span class="post-time-item-text">Reading time: </span> -->
+      <span class="post-count">2 mins. </span>
+   </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Heap/" rel="tag">Heap</a>
+    </div>
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다. <br> <a target="_blank" rel="noopener" href="https://github.com/onlybooks/algorithm-interview">깃허브 주소</a></p>
+</blockquote>
+<img src="/2023/01/22/heap/algorithm.png" class="" width="763" height="512" title="전체 개념 요약" alt="전체 개념 요약">
+
+<h1 id="15장-힙"><a href="#15장-힙" class="headerlink" title="15장: 힙"></a>15장: 힙</h1><blockquote>
+<p>힙은 힙의 특성(최소 힙에서는 부모가 항상 자식보다 작거나 같다)을 만족하는 거의 완전한 트리인 특수한 트리 기반의 자료구조다.</p>
+</blockquote>
+<ul>
+<li><p><strong>힙은 그래프나 트리와는 전혀 관계 없어 보이는 독특한 이름과 달리, 트리 기반의 자료구조다</strong></p>
+<ul>
+<li>우선순위 큐를 사용할때 매번 활용했던 heapq 모듈이 힙으로 구현되어있다.<ul>
+<li>파이썬에서는 최소 힙만 구현되어 있다.</li>
+</ul>
+</li>
+<li>최소 힙은 부모가 항상 자식보다 작기 때문에 루트가 결국 가장 작은 값을 갖게 되며, 우선순위 큐에서 가장 작은 값을 추출하는 것은 매번 힙의 루트를 가져오는 형태로 구현된다.</li>
+<li><strong>우선순위 큐는 주로 힙으로 구현하고, 힙은 주로 배열로 구현한다.</strong><br>→ 그러므로 우선순위큐는 배열로 구현되어있다.</li>
+</ul>
+</li>
+<li><p><strong>힙은 정렬되어 있는 구조가 아니다 → 부모 노드가 자식 노드 보다 작다는 조건만 만족!</strong></p>
+<ul>
+<li>부모, 자식 간의 관계만 정의, 좌우에 대한 관계는 정의 X</li>
+<li>자식이 둘인 힙은 이진 힙이라 하며, 대부분은 이진 힙이 널리 사용된다.</li>
+</ul>
+</li>
+<li><p><strong>힙은 항상 균형을 유지하는 특징 때문에 다양한 분야에 널리 활용된다.</strong></p>
+<ul>
+<li>우선순위 큐 뿐만아니라 이를 활용한 다익스트라 알고리즘에도 활용된다.</li>
+</ul>
+</li>
+<li><p><strong>BST는 좌/우 관계를 보장한다. 힙은 상/하 관계를 보장한다.</strong></p>
+<ul>
+<li>BST는 탐색과 삽입 모두 O(log n)에 가능 → 모든 값이 정렬되어야 할때 사용</li>
+<li>가장 큰 값을 추출하거나(최대 힙), 가장 작은 값을 추출할 때 (최소 힙) → 이진 힙 사용<ul>
+<li>이진 힙은 이 작업이 O(1)에 가능하다</li>
+<li>우선순위와 관련되어 있으며, 이진 힙은 우선순위 큐에 사용된다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="힙-연산"><a href="#힙-연산" class="headerlink" title="힙 연산"></a>힙 연산</h3><hr>
+<ul>
+<li><p>힙 선언 → heapq 모듈에서 지원하는 최소 힙 연산 → 리스트로 구현</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BinaryHeap</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">		self.items = [<span class="literal">None</span>]</span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">len</span>(self.items) - <span class="number">1</span></span><br></pre></td></tr></table></figure></li>
+<li><p>삽입(Up-Heap) → percolate_up() = <strong>heapq.heappush</strong></p>
+<ul>
+<li><strong>시간 복잡도 = O(log n)</strong></li>
+</ul>
+<ol>
+<li>요소를 가장 하위 레벨의 최대한 왼쪽으로 삽입한다. (배열로 표현할 경우 가장 마지막에 삽입)</li>
+<li>부모 값과 비교해 값이 더 작은 경우 위치를 변경한다</li>
+<li>계속해서 부모값과 비교해 위치를 변경한다.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_percolate_up</span>(<span class="params">self</span>):</span><br><span class="line">	i = <span class="built_in">len</span>(self.items)</span><br><span class="line">	parent = i // <span class="number">2</span></span><br><span class="line">	<span class="keyword">while</span> parent &gt; <span class="number">0</span>:</span><br><span class="line">		<span class="comment"># 값이 작으면 스왑</span></span><br><span class="line">		<span class="keyword">if</span> self.items[i] &lt; self.items[parent]:</span><br><span class="line">			self.items[parent], self.items[i] = self.items[i], self.items[parent]</span><br><span class="line">		i = parent</span><br><span class="line">		parent = i // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, k</span>):</span><br><span class="line">	self.items.append(k)</span><br><span class="line">	self._percolate_up()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>추출(Down-Heap) → percolate_down() → <strong>heapq.heappop</strong></p>
+<ol>
+<li>노드 값을 추출한 뒤, 제일 마지막 노드로 채운다.</li>
+<li>자식 노드와 비교해 값이 더 큰 경우 위치를 변경한다.</li>
+<li>재귀호출을 통해 자식값과 비교해 위치를 변경한다.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_percolate_down</span>(<span class="params">self, idx</span>):</span><br><span class="line">	left = idx * <span class="number">2</span></span><br><span class="line">	right = idx * <span class="number">2</span> + <span class="number">1</span></span><br><span class="line">	smallest = idx</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> left &lt; <span class="built_in">len</span>(self) <span class="keyword">and</span> self.items[left] &lt; self.items[smallest]:</span><br><span class="line">		smallest = left</span><br><span class="line">	<span class="keyword">if</span> right &lt; <span class="built_in">len</span>(self) <span class="keyword">and</span> self.items[right] &lt; self.items[smallest]:</span><br><span class="line">		smallest = right</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> smallest != idx:</span><br><span class="line">		self.items[idx], self.items[smallest] = self.items[smallest], self.items[idx]</span><br><span class="line">		self._percolate_down[smallest]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract</span>(<span class="params">self</span>):</span><br><span class="line">	extracted = self.items[<span class="number">1</span>]</span><br><span class="line">	self.items[<span class="number">1</span>] = self.items[<span class="built_in">len</span>(self)]</span><br><span class="line">	self.items.pop()</span><br><span class="line">	self._percolate_down(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">return</span> extracted</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://longshiine.github.io/2023/01/22/heap/" data-id="cldhhvyvh0075tvbr9mmehzdp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Jangyeong Kim"
+        },
+        "headline": "&lt;파이썬 알고리즘 인터뷰&gt; - 15장. 힙",
+        "image": "https://longshiine.github.iohttps://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png",
+        "keywords": "Heap",
+        "genre": "Tech 알고리즘",
+        "datePublished": "2023-01-22",
+        "dateCreated": "2023-01-22",
+        "dateModified": "2023-01-29",
+        "url": "https://longshiine.github.io/2023/01/22/heap/",
+        "description": "
+도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소
+
+
+
+15장: 힙
+힙은 힙의 특성(최소 힙에서는 부모가 항상 자식보다 작거나 같다)을 만족하는 거의 완전한 트리인 특수한 트리 기반의 자료구조다.
+
+
+힙은 그래프나 트리와는 전혀 관계 없어 보이는 독특한 이름과 달리, 트리 기반의 자료구조다
+
+우선순위 큐를 사용할때 매번 활용했던 heapq",
+        "wordCount": 496
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/jangyeong-kim-b7924422a/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jangyoung0108/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/long_shiine/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/longshiine" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/01/22/kth-largest-element-in-an-array/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Leetcode 215. Kth Largest Element in an Array
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/01/21/range-sum-of-bst/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Leetcode 938. Range Sum of BST</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/01/27/fibonacci-number/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://leetcode.com/static/images/LeetCode_Sharing.png)" alt="Leetcode 509. Fibonacci Number" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2023/01/27/fibonacci-number/" class="title">Leetcode 509. Fibonacci Number</a></p>
+                            <p class="item-date"><time datetime="2023-01-27T11:57:38.000Z" itemprop="datePublished">Jan 27, 2023</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/01/27/dynamic-programming/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png)" alt="&lt;파이썬 알고리즘 인터뷰&gt; - 23장. 다이나믹 프로그래밍" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2023/01/27/dynamic-programming/" class="title">&lt;파이썬 알고리즘 인터뷰&gt; - 23장. 다이나믹 프로그래밍</a></p>
+                            <p class="item-date"><time datetime="2023-01-27T11:50:38.000Z" itemprop="datePublished">Jan 27, 2023</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/01/26/majority-element/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://leetcode.com/static/images/LeetCode_Sharing.png)" alt="Leetcode 169. Majority Element" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2023/01/26/majority-element/" class="title">Leetcode 169. Majority Element</a></p>
+                            <p class="item-date"><time datetime="2023-01-26T11:57:38.000Z" itemprop="datePublished">Jan 26, 2023</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/01/26/divide-and-conquer/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png)" alt="&lt;파이썬 알고리즘 인터뷰&gt; - 22장. 분할 정복" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2023/01/26/divide-and-conquer/" class="title">&lt;파이썬 알고리즘 인터뷰&gt; - 22장. 분할 정복</a></p>
+                            <p class="item-date"><time datetime="2023-01-26T11:50:38.000Z" itemprop="datePublished">Jan 26, 2023</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/01/25/greedy/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png)" alt="&lt;파이썬 알고리즘 인터뷰&gt; - 21장. 그리디 알고리즘" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
+                            <p class="item-title"><a href="/2023/01/25/greedy/" class="title">&lt;파이썬 알고리즘 인터뷰&gt; - 21장. 그리디 알고리즘</a></p>
+                            <p class="item-date"><time datetime="2023-01-25T11:50:38.000Z" itemprop="datePublished">Jan 25, 2023</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a><span class="category-list-count">53</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><span class="category-list-count">41</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/">Writing</a><span class="category-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 12px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/BellmanEquation/" style="font-size: 10px;">BellmanEquation</a> <a href="/tags/Big-O/" style="font-size: 10px;">Big-O</a> <a href="/tags/BinarySearch/" style="font-size: 14px;">BinarySearch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DataType/" style="font-size: 10px;">DataType</a> <a href="/tags/DeepLearning/" style="font-size: 18px;">DeepLearning</a> <a href="/tags/Deque/" style="font-size: 10px;">Deque</a> <a href="/tags/Dijkstra/" style="font-size: 14px;">Dijkstra</a> <a href="/tags/Divide-Conquer/" style="font-size: 12px;">Divide&Conquer</a> <a href="/tags/Dot-Product/" style="font-size: 10px;">Dot Product</a> <a href="/tags/DynamicProgramming/" style="font-size: 14px;">DynamicProgramming</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/GradientVanishing/" style="font-size: 10px;">GradientVanishing</a> <a href="/tags/Graph/" style="font-size: 16px;">Graph</a> <a href="/tags/GreedyAlgorithm/" style="font-size: 10px;">GreedyAlgorithm</a> <a href="/tags/GridWorld/" style="font-size: 10px;">GridWorld</a> <a href="/tags/HashTable/" style="font-size: 14px;">HashTable</a> <a href="/tags/Heap/" style="font-size: 12px;">Heap</a> <a href="/tags/Inner-Product/" style="font-size: 10px;">Inner Product</a> <a href="/tags/Linkedlist/" style="font-size: 14px;">Linkedlist</a> <a href="/tags/List/" style="font-size: 16px;">List</a> <a href="/tags/MDP/" style="font-size: 10px;">MDP</a> <a href="/tags/MonteCarloApproximation/" style="font-size: 10px;">MonteCarloApproximation</a> <a href="/tags/Nepal/" style="font-size: 12px;">Nepal</a> <a href="/tags/OptimalAuction/" style="font-size: 10px;">OptimalAuction</a> <a href="/tags/PolicyIteration/" style="font-size: 10px;">PolicyIteration</a> <a href="/tags/PriorityQueue/" style="font-size: 14px;">PriorityQueue</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QLearning/" style="font-size: 10px;">QLearning</a> <a href="/tags/Queue/" style="font-size: 12px;">Queue</a> <a href="/tags/ReinforcementLearning/" style="font-size: 20px;">ReinforcementLearning</a> <a href="/tags/SARSA/" style="font-size: 10px;">SARSA</a> <a href="/tags/Sort/" style="font-size: 10px;">Sort</a> <a href="/tags/Stack/" style="font-size: 12px;">Stack</a> <a href="/tags/TemporalDifference/" style="font-size: 10px;">TemporalDifference</a> <a href="/tags/Travel/" style="font-size: 12px;">Travel</a> <a href="/tags/Tree/" style="font-size: 16px;">Tree</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/ValueFunction/" style="font-size: 10px;">ValueFunction</a> <a href="/tags/ValueIteration/" style="font-size: 10px;">ValueIteration</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/heapq/" style="font-size: 10px;">heapq</a> <a href="/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/" style="font-size: 10px;">스타트업</a> <a href="/tags/%EC%9D%BC%EA%B8%B0/" style="font-size: 10px;">일기</a> <a href="/tags/%ED%9A%8C%EA%B3%A0/" style="font-size: 10px;">회고</a>
+        </div>
+    </div>
+
+
+            
+                <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2555870048154123"
+            data-ad-slot="8380012300"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Jangyeong Kim</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'longshiine';
+    
+    
+    var disqus_url = 'https://longshiine.github.io/2023/01/22/heap/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+      <script data-ad-client="ca-pub-2555870048154123" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
