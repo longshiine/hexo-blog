@@ -6,25 +6,25 @@
     
 
     
-    <title>&lt;파이썬 알고리즘 인터뷰&gt; - 14장. 트리 | Jang. Inspiration</title>
+    <title>&lt;파이썬 알고리즘 인터뷰&gt; - 13장. 최단 경로 문제 | Jang. Inspiration</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="naver-site-verification" content="bdfc64ddc42fb9ff7bc866fa6373e1f45671f7ea" />
     
-    <meta name="keywords" content="Tree" />
+    <meta name="keywords" content="Dijkstra" />
     
-    <meta name="description" content="도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소    14장: 트리 트리는 계층형 트리 구조를 시뮬레이션 하는 추상 자료형으로 루트값과 부모-자식 관계의 서브트리로 구성되며, 서로 연결된 노드의 집합이다.   재귀로 정의된 자기참조 자료구조 트리는 자식도 트리고 그 자식도 트리다 → 여러개의 트리가 쌓아 올려져 큰 트리가 된다. 흔히 서">
+    <meta name="description" content="도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소    13장: 최단 경로 문제 최단 경로 문제는 각 간선의 가중치 합이 최소가 되는 두 정점(또는 노드)사이의 경로를 찾는 문제다.   최단 경로는 한 지점에서 다른 지점으로 갈 때 가장 빠른 길을 찾는 것과 비슷한 문제다. 그래프의 종류와 특성에 따라 각각 최적화된 다양한 최단 경로 알고">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&lt;파이썬 알고리즘 인터뷰&gt; - 14장. 트리">
-<meta property="og:url" content="https://longshiine.github.io/2023/01/21/tree/index.html">
+<meta property="og:title" content="&lt;파이썬 알고리즘 인터뷰&gt; - 13장. 최단 경로 문제">
+<meta property="og:url" content="https://longshiine.github.io/2023/01/21/Tree/index.html">
 <meta property="og:site_name" content="Jang. Inspiration">
-<meta property="og:description" content="도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소    14장: 트리 트리는 계층형 트리 구조를 시뮬레이션 하는 추상 자료형으로 루트값과 부모-자식 관계의 서브트리로 구성되며, 서로 연결된 노드의 집합이다.   재귀로 정의된 자기참조 자료구조 트리는 자식도 트리고 그 자식도 트리다 → 여러개의 트리가 쌓아 올려져 큰 트리가 된다. 흔히 서">
+<meta property="og:description" content="도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소    13장: 최단 경로 문제 최단 경로 문제는 각 간선의 가중치 합이 최소가 되는 두 정점(또는 노드)사이의 경로를 찾는 문제다.   최단 경로는 한 지점에서 다른 지점으로 갈 때 가장 빠른 길을 찾는 것과 비슷한 문제다. 그래프의 종류와 특성에 따라 각각 최적화된 다양한 최단 경로 알고">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png">
-<meta property="article:published_time" content="2023-01-21T11:50:38.000Z">
-<meta property="article:modified_time" content="2023-01-29T14:53:14.221Z">
+<meta property="article:published_time" content="2023-01-20T11:50:38.000Z">
+<meta property="article:modified_time" content="2023-01-29T14:17:02.673Z">
 <meta property="article:author" content="Jangyeong Kim">
-<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Dijkstra">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png">
     
@@ -105,7 +105,7 @@
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/">Tech</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/">Writing</a></li></ul>
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/">Tech</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/">Writing</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/%EA%B8%80%EC%93%B0%EA%B8%B0/">글쓰기</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/%EB%8F%85%EC%84%9C/">독서</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Writing/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/">스타트업</a></li></ul></li></ul>
                                 
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
@@ -172,14 +172,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-2023/01/21/tree" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-2023/01/21/Tree" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        &lt;파이썬 알고리즘 인터뷰&gt; - 14장. 트리
+        &lt;파이썬 알고리즘 인터뷰&gt; - 13장. 최단 경로 문제
         </h1>
     
 
@@ -190,16 +190,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2023/01/21/tree/" class="article-date">
-       <time datetime="2023-01-21T11:50:38.000Z" itemprop="datePublished">Jan 21, 2023</time>
+    <a href="/2023/01/21/Tree/" class="article-date">
+       <time datetime="2023-01-20T11:50:38.000Z" itemprop="datePublished">Jan 20, 2023</time>
     </a>
   </div>
 
 <!-- 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2023/01/21/tree/" class="article-date">
-     <time datetime="2023-01-29T14:53:14.221Z" itemprop="dateModified">Jan 29, 2023</time>
+  <a href="/2023/01/21/Tree/" class="article-date">
+     <time datetime="2023-01-29T14:17:02.673Z" itemprop="dateModified">Jan 29, 2023</time>
   </a>
 </div>
  -->
@@ -208,10 +208,10 @@
    <div class="article-counter">
       <!-- <i class="fa fa-file-word-o"></i>
       <span class="post-count-item-text">Symbols count in article: </span>
-      <span class="post-count">446</span> -->
+      <span class="post-count">143</span> -->
       <i class="fa fa-clock-o"></i>
       <!-- <span class="post-time-item-text">Reading time: </span> -->
-      <span class="post-count">2 mins. </span>
+      <span class="post-count">1 mins. </span>
    </div>
 
 
@@ -220,7 +220,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Tree/" rel="tag">Tree</a>
+        <a class="tag-link-link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>
     </div>
 
                 
@@ -238,78 +238,24 @@
             <blockquote>
 <p>도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다. <br> <a target="_blank" rel="noopener" href="https://github.com/onlybooks/algorithm-interview">깃허브 주소</a></p>
 </blockquote>
-<img src="/2023/01/21/tree/algorithm.png" class="" width="763" height="512" title="전체 개념 요약" alt="전체 개념 요약">
 
-<h1 id="14장-트리"><a href="#14장-트리" class="headerlink" title="14장: 트리"></a>14장: 트리</h1><blockquote>
-<p>트리는 계층형 트리 구조를 시뮬레이션 하는 추상 자료형으로 루트값과 부모-자식 관계의 서브트리로 구성되며, 서로 연결된 노드의 집합이다.</p>
-</blockquote>
-<ul>
-<li>재귀로 정의된 자기참조 자료구조<ul>
-<li>트리는 자식도 트리고 그 자식도 트리다 → 여러개의 트리가 쌓아 올려져 큰 트리가 된다.</li>
-<li>흔히 서브트리로 구성된다고 표현한다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="트리의-각-명칭"><a href="#트리의-각-명칭" class="headerlink" title="트리의 각 명칭"></a>트리의 각 명칭</h3><hr>
-<img src="/2023/01/21/tree/1.png" class="" width="400" height="300" title="트리의 각 명칭" alt="트리의 각 명칭">
 
-<ul>
-<li>레벨은 0부터 시작한다.</li>
-<li>트리는 항상 단방향이기 때문에, 간선의 화살표는 생략 가능하다.</li>
-</ul>
-<h3 id="Q-트리와-그래프의-차이는-무엇입니까"><a href="#Q-트리와-그래프의-차이는-무엇입니까" class="headerlink" title="Q. 트리와 그래프의 차이는 무엇입니까?"></a>Q. 트리와 그래프의 차이는 무엇입니까?</h3><hr>
-<h3 id="A-“트리는-순환구조를-갖지-않는-그래프입니다”"><a href="#A-“트리는-순환구조를-갖지-않는-그래프입니다”" class="headerlink" title="A. “트리는 순환구조를 갖지 않는 그래프입니다”"></a>A. “트리는 순환구조를 갖지 않는 그래프입니다”</h3><ul>
-<li>트리는 하나의 부모 노드를 갖는다. 루트 또한 하나여야 한다.</li>
-</ul>
-<p><strong>그래프 &gt; 트리 &gt; 이진트리</strong></p>
-<h2 id="이진-트리"><a href="#이진-트리" class="headerlink" title="이진 트리"></a>이진 트리</h2><hr>
-<blockquote>
-<p>각 노드가 m개 이하의 자식을 갖고 있으면, m-ary 트리(다항 트리)라고 한다.</p>
+<h1 id="13장-최단-경로-문제"><a href="#13장-최단-경로-문제" class="headerlink" title="13장: 최단 경로 문제"></a>13장: 최단 경로 문제</h1><blockquote>
+<p>최단 경로 문제는 각 간선의 가중치 합이 최소가 되는 두 정점(또는 노드)사이의 경로를 찾는 문제다.</p>
 </blockquote>
 <ul>
-<li>여기서 m=2일 경우, 즉 모든 노드의 차수가 2 이하일 때는 특별히 이진 트리(Binary Tree)라고 구분해서 부른다.</li>
-<li>이진 트리는 왼쪽, 오른쪽, 최대 2개의 자식을 갖는 매우 단순한 형태로, 다진 트리에 비해서 훨씬 간결할 뿐만 아니라 여러가지 알고리즘을 구현하는 일도 좀 더 간단하게 처리할 수 있어서, 대체로 트리라고 하면 특별한 경우가 아니면 대부분 이진 트리를 일컫는다.</li>
-<li>이진 트리의 유형<img src="/2023/01/21/tree/2.png" class="" width="400" height="300" title="이진트리의 유형" alt="이진트리의 유형">
-<ul>
-<li>정 이진 트리(Full Binary Tree): 모든 노드가 0개 또는 2개의 자식 노드를 갖는다.</li>
-<li>완전 이진 트리(Complete Binary Tree): 마지막 레벨을 제외하고 모든 레벨이 완전히 채 워져 있으며, 마지막 레벨의 모든 노드는 가장 왼쪽부터 채워져 있다.</li>
-<li>포화 이진 트리(Perfect Binary Tree): 모든 노드가 2개의 자식 노드를 갖고 있으며, 모든 리프 노드가 동일한 깊이 또는 레벨을 갖는다. 문자 그대로, 가장 완벽한Perfed 유 형의 트리다.</li>
+<li>최단 경로는 한 지점에서 다른 지점으로 갈 때 가장 빠른 길을 찾는 것과 비슷한 문제다.</li>
+<li>그래프의 종류와 특성에 따라 각각 최적화된 다양한 최단 경로 알고리즘이 존재한다.</li>
+<li>이 중 가장 유명한 것은 다익스트라(Dijkstra) 알고리즘이다.<ul>
+<li>항상 노드 주변의 최단 경로만을 택하는 대표적인 그리디 알고리즘 중 하나로, 단순할 뿐만 아니라 실행 속도 또한 빠르다.</li>
+<li>다익스트라 알고리즘은 노드 주변을 탐색할 때 BFS를 이용하는 대표적인 알고리즘이다.</li>
+<li>DFS = 한사람이 미로를 찾아 헤매는 과정, BFS = 여러 사람이 각기 서로 다른 갈림 길로 흩어져 찾는 과정</li>
+<li>다익스트라 알고리즘은 임의의 정점을 출발 집합에 더할 때, 그 정점까지의 최단거리는 계산이 끝났다는 확신을 가지고 더한다.</li>
+<li>우선순위 큐 적용시 시간복잡도는 O((V+E)logV)<ul>
+<li>모든 정점이 출발지에서 도달 가능하다면→ O(E log V)</li>
 </ul>
 </li>
 </ul>
-<h2 id="이진-탐색-트리"><a href="#이진-탐색-트리" class="headerlink" title="이진 탐색 트리"></a>이진 탐색 트리</h2><hr>
-<blockquote>
-<p>정렬된 트리로, 왼쪽 서브트리에는 그 노드의 값보다 작은 값들을 지닌 노드가, 오른쪽 서브트리에는 그 노드의 값과 같거나 큰 노드들로 이루어져 있는 트리이다</p>
-</blockquote>
-<ul>
-<li>탐색시 시간 복잡도가 O(log n)이다.</li>
-<li>비효율적으로 구성된 경우, 연결리스트와 다르지 않게 O(n)이 소요된다 (1-2-3-4-5-6-7)</li>
-<li>이런 트리는 균형을 맞춰줄 필요가 있으며 이를 <strong>‘자가 균형 이진 탐색 트리’</strong>라고 한다.</li>
-</ul>
-<h3 id="자가-균형-이진-탐색-트리"><a href="#자가-균형-이진-탐색-트리" class="headerlink" title="자가 균형 이진 탐색 트리"></a>자가 균형 이진 탐색 트리</h3><hr>
-<blockquote>
-<p>자가 균형(또는 높이 균형) 이진 탐색 트리는 삽입, 삭제 시 자동으로 높이를 작게 유지하는 노드 기반의 이진 탐색 트리다.</p>
-</blockquote>
-<ul>
-<li><p>자가 균형 이진 탐색 트리는 최악의 경우에도 이진 트리의 균형이 잘 맞도록 유지한다. 즉 높이를 가능한 한 낮게 유지하는 것이 중요하다는 이야기다.</p>
-</li>
-<li><p>루트의 높이로 불균형과 균형을 구분할 수 있다.</p>
-</li>
-<li><p>자가 균형 이진 탐색 트리의 형태</p>
-<ul>
-<li>AVL 트리</li>
-<li>레드-블랙 트리</li>
-</ul>
-</li>
-</ul>
-<h3 id="트리-순회"><a href="#트리-순회" class="headerlink" title="트리 순회"></a><strong>트리 순회</strong></h3><hr>
-<blockquote>
-<p>트리 순회란 그래프 순회의 한 형태로 트리 자료구조에서 각 노드를 정확히 한번 방문하는 과정을 말한다.</p>
-</blockquote>
-<ul>
-<li>전위 순회(Pre-Order) → NLR<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">preorder</span>(<span class="params">node</span>):</span><br><span class="line">	<span class="keyword">if</span> node <span class="keyword">is</span> NOne:</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	<span class="built_in">print</span>(node.val)</span><br><span class="line">	preorder(node.left)</span><br><span class="line">	preorder(node.right)</span><br></pre></td></tr></table></figure></li>
-<li>중위 순회(In-Order) → LNR<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">inorder</span>(<span class="params">node</span>):</span><br><span class="line">	<span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	inorder(node.left)</span><br><span class="line">	<span class="built_in">print</span>(node.val)</span><br><span class="line">	inorder(node.right)</span><br></pre></td></tr></table></figure></li>
-<li>후위 순회(Post-Order) → LRN<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">postorder</span>(<span class="params">node</span>):</span><br><span class="line">	<span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	postorder(node.left)</span><br><span class="line">	postorder(node.right)</span><br><span class="line">	<span class="built_in">print</span>(node.val)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -319,7 +265,7 @@
 
 
 
-    <a data-url="https://longshiine.github.io/2023/01/21/tree/" data-id="cldhgwhex0062tvbrgnpj3i29" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://longshiine.github.io/2023/01/21/Tree/" data-id="cldhgugo1005ytvbr8uza0hfg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -389,27 +335,26 @@
             "@type": "Person",
             "name": "Jangyeong Kim"
         },
-        "headline": "&lt;파이썬 알고리즘 인터뷰&gt; - 14장. 트리",
+        "headline": "&lt;파이썬 알고리즘 인터뷰&gt; - 13장. 최단 경로 문제",
         "image": "https://longshiine.github.iohttps://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png",
-        "keywords": "Tree",
+        "keywords": "Dijkstra",
         "genre": "Tech 알고리즘",
-        "datePublished": "2023-01-21",
-        "dateCreated": "2023-01-21",
+        "datePublished": "2023-01-20",
+        "dateCreated": "2023-01-20",
         "dateModified": "2023-01-29",
-        "url": "https://longshiine.github.io/2023/01/21/tree/",
+        "url": "https://longshiine.github.io/2023/01/21/Tree/",
         "description": "
 도서 파이썬 알고리즘 인터뷰의 내용을 정리했습니다.  깃허브 주소
 
 
 
-14장: 트리
-트리는 계층형 트리 구조를 시뮬레이션 하는 추상 자료형으로 루트값과 부모-자식 관계의 서브트리로 구성되며, 서로 연결된 노드의 집합이다.
+13장: 최단 경로 문제
+최단 경로 문제는 각 간선의 가중치 합이 최소가 되는 두 정점(또는 노드)사이의 경로를 찾는 문제다.
 
 
-재귀로 정의된 자기참조 자료구조
-트리는 자식도 트리고 그 자식도 트리다 → 여러개의 트리가 쌓아 올려져 큰 트리가 된다.
-흔히 서",
-        "wordCount": 495
+최단 경로는 한 지점에서 다른 지점으로 갈 때 가장 빠른 길을 찾는 것과 비슷한 문제다.
+그래프의 종류와 특성에 따라 각각 최적화된 다양한 최단 경로 알고",
+        "wordCount": 134
     }
 </script>
 
@@ -474,20 +419,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2023/01/21/maximum-depth-of-binary-tree/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2023/01/20/cheapest-flights-within-k-stops/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            Leetcode 104. Maximum Depth of Binary Tree
+            Leetcode 787. Cheapest Flights Within K Stops
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2023/01/20/cheapest-flights-within-k-stops/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2023/01/20/shortest-path-problem/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Leetcode 787. Cheapest Flights Within K Stops</p>
+        <p class="article-nav-title">&lt;파이썬 알고리즘 인터뷰&gt; - 13장. 최단 경로 문제</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -502,6 +447,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/08/working-backward/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80)" alt="순서파괴(Working Backward)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Writing/">Writing</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Writing/%EB%8F%85%EC%84%9C/">독서</a></p>
+                            <p class="item-title"><a href="/2023/02/08/working-backward/" class="title">순서파괴(Working Backward)</a></p>
+                            <p class="item-date"><time datetime="2023-02-08T13:04:38.000Z" itemprop="datePublished">Feb 08, 2023</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -583,26 +548,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/01/25/greedy/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://user-images.githubusercontent.com/1250095/86745916-a62e9a00-c075-11ea-9aa5-8455e2527f87.png)" alt="&lt;파이썬 알고리즘 인터뷰&gt; - 21장. 그리디 알고리즘" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Tech/">Tech</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a></p>
-                            <p class="item-title"><a href="/2023/01/25/greedy/" class="title">&lt;파이썬 알고리즘 인터뷰&gt; - 21장. 그리디 알고리즘</a></p>
-                            <p class="item-date"><time datetime="2023-01-25T11:50:38.000Z" itemprop="datePublished">Jan 25, 2023</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -612,7 +557,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a><span class="category-list-count">53</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><span class="category-list-count">41</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/">Writing</a><span class="category-list-count">4</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a><span class="category-list-count">53</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/">강화학습</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/">공학수학</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a><span class="category-list-count">41</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/">Writing</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/%EA%B8%80%EC%93%B0%EA%B8%B0/">글쓰기</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/%EB%8F%85%EC%84%9C/">독서</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Writing/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/">스타트업</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -622,7 +567,139 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Algorithm/" style="font-size: 12px;">Algorithm</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/BellmanEquation/" style="font-size: 10px;">BellmanEquation</a> <a href="/tags/Big-O/" style="font-size: 10px;">Big-O</a> <a href="/tags/BinarySearch/" style="font-size: 14px;">BinarySearch</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DataType/" style="font-size: 10px;">DataType</a> <a href="/tags/DeepLearning/" style="font-size: 18px;">DeepLearning</a> <a href="/tags/Deque/" style="font-size: 10px;">Deque</a> <a href="/tags/Dijkstra/" style="font-size: 14px;">Dijkstra</a> <a href="/tags/Divide-Conquer/" style="font-size: 12px;">Divide&Conquer</a> <a href="/tags/Dot-Product/" style="font-size: 10px;">Dot Product</a> <a href="/tags/DynamicProgramming/" style="font-size: 14px;">DynamicProgramming</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/GradientVanishing/" style="font-size: 10px;">GradientVanishing</a> <a href="/tags/Graph/" style="font-size: 16px;">Graph</a> <a href="/tags/GreedyAlgorithm/" style="font-size: 10px;">GreedyAlgorithm</a> <a href="/tags/GridWorld/" style="font-size: 10px;">GridWorld</a> <a href="/tags/HashTable/" style="font-size: 14px;">HashTable</a> <a href="/tags/Heap/" style="font-size: 12px;">Heap</a> <a href="/tags/Inner-Product/" style="font-size: 10px;">Inner Product</a> <a href="/tags/Linkedlist/" style="font-size: 14px;">Linkedlist</a> <a href="/tags/List/" style="font-size: 16px;">List</a> <a href="/tags/MDP/" style="font-size: 10px;">MDP</a> <a href="/tags/MonteCarloApproximation/" style="font-size: 10px;">MonteCarloApproximation</a> <a href="/tags/Nepal/" style="font-size: 12px;">Nepal</a> <a href="/tags/OptimalAuction/" style="font-size: 10px;">OptimalAuction</a> <a href="/tags/PolicyIteration/" style="font-size: 10px;">PolicyIteration</a> <a href="/tags/PriorityQueue/" style="font-size: 14px;">PriorityQueue</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QLearning/" style="font-size: 10px;">QLearning</a> <a href="/tags/Queue/" style="font-size: 12px;">Queue</a> <a href="/tags/ReinforcementLearning/" style="font-size: 20px;">ReinforcementLearning</a> <a href="/tags/SARSA/" style="font-size: 10px;">SARSA</a> <a href="/tags/Sort/" style="font-size: 10px;">Sort</a> <a href="/tags/Stack/" style="font-size: 12px;">Stack</a> <a href="/tags/TemporalDifference/" style="font-size: 10px;">TemporalDifference</a> <a href="/tags/Travel/" style="font-size: 12px;">Travel</a> <a href="/tags/Tree/" style="font-size: 16px;">Tree</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/ValueFunction/" style="font-size: 10px;">ValueFunction</a> <a href="/tags/ValueIteration/" style="font-size: 10px;">ValueIteration</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/heapq/" style="font-size: 10px;">heapq</a> <a href="/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/" style="font-size: 10px;">스타트업</a> <a href="/tags/%EC%9D%BC%EA%B8%B0/" style="font-size: 10px;">일기</a> <a href="/tags/%ED%9A%8C%EA%B3%A0/" style="font-size: 10px;">회고</a>
+            <a href="/tags/Algorithm/" style="font-size: 12px;">Algorithm</a> <a href="/tags/Amazon/" style="font-size: 10px;">Amazon</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/BellmanEquation/" style="font-size: 10px;">BellmanEquation</a> <a href="/tags/Big-O/" style="font-size: 10px;">Big-O</a> <a href="/tags/BinarySearch/" style="font-size: 14px;">BinarySearch</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DataType/" style="font-size: 10px;">DataType</a> <a href="/tags/DeepLearning/" style="font-size: 18px;">DeepLearning</a> <a href="/tags/Deque/" style="font-size: 10px;">Deque</a> <a href="/tags/Dijkstra/" style="font-size: 14px;">Dijkstra</a> <a href="/tags/Divide-Conquer/" style="font-size: 12px;">Divide&Conquer</a> <a href="/tags/Dot-Product/" style="font-size: 10px;">Dot Product</a> <a href="/tags/DynamicProgramming/" style="font-size: 14px;">DynamicProgramming</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/GradientVanishing/" style="font-size: 10px;">GradientVanishing</a> <a href="/tags/Graph/" style="font-size: 16px;">Graph</a> <a href="/tags/GreedyAlgorithm/" style="font-size: 10px;">GreedyAlgorithm</a> <a href="/tags/GridWorld/" style="font-size: 10px;">GridWorld</a> <a href="/tags/HashTable/" style="font-size: 14px;">HashTable</a> <a href="/tags/Heap/" style="font-size: 12px;">Heap</a> <a href="/tags/Inner-Product/" style="font-size: 10px;">Inner Product</a> <a href="/tags/Linkedlist/" style="font-size: 14px;">Linkedlist</a> <a href="/tags/List/" style="font-size: 16px;">List</a> <a href="/tags/MDP/" style="font-size: 10px;">MDP</a> <a href="/tags/MonteCarloApproximation/" style="font-size: 10px;">MonteCarloApproximation</a> <a href="/tags/Nepal/" style="font-size: 12px;">Nepal</a> <a href="/tags/OptimalAuction/" style="font-size: 10px;">OptimalAuction</a> <a href="/tags/PolicyIteration/" style="font-size: 10px;">PolicyIteration</a> <a href="/tags/PriorityQueue/" style="font-size: 14px;">PriorityQueue</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QLearning/" style="font-size: 10px;">QLearning</a> <a href="/tags/Queue/" style="font-size: 12px;">Queue</a> <a href="/tags/ReinforcementLearning/" style="font-size: 20px;">ReinforcementLearning</a> <a href="/tags/SARSA/" style="font-size: 10px;">SARSA</a> <a href="/tags/Sort/" style="font-size: 10px;">Sort</a> <a href="/tags/Stack/" style="font-size: 12px;">Stack</a> <a href="/tags/TemporalDifference/" style="font-size: 10px;">TemporalDifference</a> <a href="/tags/Travel/" style="font-size: 12px;">Travel</a> <a href="/tags/Tree/" style="font-size: 16px;">Tree</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/ValueFunction/" style="font-size: 10px;">ValueFunction</a> <a href="/tags/ValueIteration/" style="font-size: 10px;">ValueIteration</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/heapq/" style="font-size: 10px;">heapq</a> <a href="/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/" style="font-size: 10px;">스타트업</a> <a href="/tags/%EC%9D%BC%EA%B8%B0/" style="font-size: 10px;">일기</a> <a href="/tags/%ED%9A%8C%EA%B3%A0/" style="font-size: 10px;">회고</a>
+        </div>
+    </div>
+
+
+            
+                <div class="widget-wrap widget-float">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- huemen sidebar -->
+    <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2555870048154123"
+            data-ad-slot="8380012300"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Jangyeong Kim</p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'longshiine';
+    
+    
+    var disqus_url = 'https://longshiine.github.io/2023/01/21/Tree/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>
+
+    
+
+    
+      <script data-ad-client="ca-pub-2555870048154123" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
+/a> <a href="/tags/Amazon/" style="font-size: 10px;">Amazon</a> <a href="/tags/BFS/" style="font-size: 10px;">BFS</a> <a href="/tags/BST/" style="font-size: 10px;">BST</a> <a href="/tags/BellmanEquation/" style="font-size: 10px;">BellmanEquation</a> <a href="/tags/Big-O/" style="font-size: 10px;">Big-O</a> <a href="/tags/BinarySearch/" style="font-size: 14px;">BinarySearch</a> <a href="/tags/Book/" style="font-size: 10px;">Book</a> <a href="/tags/CNN/" style="font-size: 10px;">CNN</a> <a href="/tags/ComputerVision/" style="font-size: 10px;">ComputerVision</a> <a href="/tags/DFS/" style="font-size: 10px;">DFS</a> <a href="/tags/DataType/" style="font-size: 10px;">DataType</a> <a href="/tags/DeepLearning/" style="font-size: 18px;">DeepLearning</a> <a href="/tags/Deque/" style="font-size: 10px;">Deque</a> <a href="/tags/Dijkstra/" style="font-size: 14px;">Dijkstra</a> <a href="/tags/Divide-Conquer/" style="font-size: 12px;">Divide&Conquer</a> <a href="/tags/Dot-Product/" style="font-size: 10px;">Dot Product</a> <a href="/tags/DynamicProgramming/" style="font-size: 14px;">DynamicProgramming</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/GradientVanishing/" style="font-size: 10px;">GradientVanishing</a> <a href="/tags/Graph/" style="font-size: 16px;">Graph</a> <a href="/tags/GreedyAlgorithm/" style="font-size: 10px;">GreedyAlgorithm</a> <a href="/tags/GridWorld/" style="font-size: 10px;">GridWorld</a> <a href="/tags/HashTable/" style="font-size: 14px;">HashTable</a> <a href="/tags/Heap/" style="font-size: 12px;">Heap</a> <a href="/tags/Inner-Product/" style="font-size: 10px;">Inner Product</a> <a href="/tags/Linkedlist/" style="font-size: 14px;">Linkedlist</a> <a href="/tags/List/" style="font-size: 16px;">List</a> <a href="/tags/MDP/" style="font-size: 10px;">MDP</a> <a href="/tags/MonteCarloApproximation/" style="font-size: 10px;">MonteCarloApproximation</a> <a href="/tags/Nepal/" style="font-size: 12px;">Nepal</a> <a href="/tags/OptimalAuction/" style="font-size: 10px;">OptimalAuction</a> <a href="/tags/PolicyIteration/" style="font-size: 10px;">PolicyIteration</a> <a href="/tags/PriorityQueue/" style="font-size: 14px;">PriorityQueue</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/QLearning/" style="font-size: 10px;">QLearning</a> <a href="/tags/Queue/" style="font-size: 12px;">Queue</a> <a href="/tags/ReinforcementLearning/" style="font-size: 20px;">ReinforcementLearning</a> <a href="/tags/SARSA/" style="font-size: 10px;">SARSA</a> <a href="/tags/Sort/" style="font-size: 10px;">Sort</a> <a href="/tags/Stack/" style="font-size: 12px;">Stack</a> <a href="/tags/TemporalDifference/" style="font-size: 10px;">TemporalDifference</a> <a href="/tags/Travel/" style="font-size: 12px;">Travel</a> <a href="/tags/Tree/" style="font-size: 16px;">Tree</a> <a href="/tags/Trie/" style="font-size: 10px;">Trie</a> <a href="/tags/ValueFunction/" style="font-size: 10px;">ValueFunction</a> <a href="/tags/ValueIteration/" style="font-size: 10px;">ValueIteration</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/heapq/" style="font-size: 10px;">heapq</a> <a href="/tags/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/" style="font-size: 10px;">스타트업</a> <a href="/tags/%EC%9D%BC%EA%B8%B0/" style="font-size: 10px;">일기</a> <a href="/tags/%ED%9A%8C%EA%B3%A0/" style="font-size: 10px;">회고</a>
         </div>
     </div>
 

@@ -1,3 +1,8 @@
+https://longshiine.github.io/2021/01/31/2021-01/
+https://longshiine.github.io/2022/12/31/2022-Retrospect/
+https://longshiine.github.io/2023/01/02/Himalaya-Fantasy-1/
+https://longshiine.github.io/2023/01/07/Himalaya-Fantasy-2/
+https://longshiine.github.io/2023/02/08/working-backward/
 https://longshiine.github.io/2023/01/27/fibonacci-number/
 https://longshiine.github.io/2023/01/27/dynamic-programming/
 https://longshiine.github.io/2023/01/26/majority-element/
@@ -37,10 +42,6 @@ https://longshiine.github.io/2023/01/13/palindrome-linked-list%20copy/
 https://longshiine.github.io/2023/01/12/array-partition-i/
 https://longshiine.github.io/2023/01/12/3sum/
 https://longshiine.github.io/2023/01/12/two-sum/
-https://longshiine.github.io/2023/01/07/Himalaya-Fantasy-2/
-https://longshiine.github.io/2023/01/02/Himalaya-Fantasy-1/
-https://longshiine.github.io/2022/12/31/2022-Retrospect/
-https://longshiine.github.io/2021/01/31/2021-01/
 https://longshiine.github.io/2021/02/05/DFS-BFS/
 https://longshiine.github.io/2021/07/19/StarGAN-v2-Review/
 https://longshiine.github.io/2021/02/05/Priority-Queue/
@@ -57,6 +58,7 @@ https://longshiine.github.io/2021/01/03/Optimal-Auction-Through-Deep-Learning-1/
 https://longshiine.github.io/2020/08/27/Gradient-Vanishing/
 https://longshiine.github.io/about/index.html
 https://longshiine.github.io/
+https://longshiine.github.io/tags/Book/
 https://longshiine.github.io/tags/CNN/
 https://longshiine.github.io/tags/DeepLearning/
 https://longshiine.github.io/tags/GradientVanishing/
@@ -107,9 +109,13 @@ https://longshiine.github.io/tags/Sort/
 https://longshiine.github.io/tags/BinarySearch/
 https://longshiine.github.io/tags/GreedyAlgorithm/
 https://longshiine.github.io/tags/Divide-Conquer/
+https://longshiine.github.io/tags/Amazon/
 https://longshiine.github.io/categories/Tech/
 https://longshiine.github.io/categories/Tech/%EA%B3%B5%ED%95%99%EC%88%98%ED%95%99/
 https://longshiine.github.io/categories/Tech/%EB%94%A5%EB%9F%AC%EB%8B%9D/
 https://longshiine.github.io/categories/Tech/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/
 https://longshiine.github.io/categories/Writing/
 https://longshiine.github.io/categories/Tech/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/
+https://longshiine.github.io/categories/Writing/%EB%8F%85%EC%84%9C/
+https://longshiine.github.io/categories/Writing/%EA%B8%80%EC%93%B0%EA%B8%B0/
+https://longshiine.github.io/categories/Writing/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85/
